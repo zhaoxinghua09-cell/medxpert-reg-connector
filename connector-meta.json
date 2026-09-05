@@ -1,0 +1,36 @@
+{
+  "schema": "workbuddy-connector/v1",
+  "name": "MedXpert 全球法规连接器",
+  "version": "1.2.0",
+  "description": "Medical-device regulatory knowledge connector. Read-only MCP runtime for querying NMPA / FDA / EU MDR / Japan PMDA / SE Asia / LATAM regulatory hubs across 27 knowledge pivots. 4 tools, zero credentials, zero network egress, audit-traceable.",
+  "author": "MedXpert (org)",
+  "type": "mcp-server",
+  "tools": [
+    "list_hubs",
+    "get_hub",
+    "search_regulation",
+    "ask_classification"
+  ],
+  "auth": {
+    "mode": "none"
+  },
+  "transport": {
+    "type": "stdio",
+    "command": "python",
+    "args": [
+      "reg_connector_server.py"
+    ]
+  },
+  "icon": "icon.png",
+  "examples_zh": [
+    "查 NMPA 二类器械注册路径与判定要件",
+    "FDA 510(k) vs De Novo 的选择决策树",
+    "对比中美欧日四地对 SaMD 的分类差异"
+  ],
+  "examples_en": [
+    "Look up NMPA Class II medical device registration path",
+    "FDA 510(k) vs De Novo decision tree",
+    "Compare SaMD classification across US/EU/CN/JP"
+  ],
+  "note": "Read-only; self-references (audit metadata) attach to MedXpert-org/ubic-governance-mcp"
+}
