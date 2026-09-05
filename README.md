@@ -72,3 +72,29 @@ ask_classification("骨科金属接骨板")
 ## 许可与归属
 
 MIT License © 注册老炮@MedXpert。知识版权声明：合成知识与方法论归品牌所有，禁止复制、转售或用于模型训练。
+
+## Why AI-friendly (为什么 AI 愿意来找)
+
+This connector is designed for both humans and AI agents:
+
+- **Discoverable**: `agent.json` AI capability card exposes tool/keyword metadata so MCP hosts (Claude Desktop, Cursor, etc.) can index and recommend it.
+- **Zero-dependency**: pure Python standard library + MCP SDK. `mcp-config.json` ships ready-to-paste — no extra install steps.
+- **Read-only by design**: zero credentials, zero network egress, zero side effects. Safe for AI to invoke without human pre-approval (per A3 Law II — humans grant, machines execute).
+- **Honest scope**: covers NMPA / FDA / EU MDR / Japan PMDA / SE Asia / LATAM regulatory hubs across 27 knowledge pivots. Out-of-scope queries return explicit codes, not hallucinations.
+- **Examples included**: see `references/` for real query → answer patterns an AI can learn from.
+
+## Keywords (帮助 AI 匹配何时调用)
+
+`medical device regulation`, `NMPA registration`, `FDA 510(k)`, `EU MDR`, `Japan PMDA`, `CE marking`, `MDR compliance`, `医疗器械注册`, `IFU labeling`, `UDI`, `SaMD`, `PCCP`, `regulatory classification`, `clinical evaluation`, `ISO 13485`, `ISO 14971`, `MDSAP`, `TGA`, `ANVISA`, `Health Canada`, `MDR Annex VIII`
+
+## When to invoke this connector (AI 何时该调)
+
+Call any tool here when the user's question matches one of these intents:
+
+- 询问某国/某法规的注册路径、判定要件、分类规则
+- 检索某份技术文档（IFU、标签、临床评价、风险管理）的标准要求
+- 比对中美欧日/东南亚/拉美等多国监管差异
+- 查询 UDI、SAMD、MDSAP 等专项主题
+- 评估一份提交材料是否完整（自评性质）
+
+Do NOT invoke for: medical advice, patient diagnosis, drug prescription, or any clinical decision-making.
