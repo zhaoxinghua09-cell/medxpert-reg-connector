@@ -1,0 +1,55 @@
+{
+  "schema": "ubic/agent-card/v1",
+  "name": "MedXpert 全球法规连接器 (reg-connector)",
+  "description": "Medical-device regulatory knowledge connector. Read-only MCP runtime for querying NMPA / FDA / EU MDR / Japan PMDA / SE Asia / LATAM regulatory hubs across 27 knowledge pivots. 4 tools, zero credentials, zero network egress, audit-traceable.",
+  "protocol": "MCP",
+  "provider": {
+    "organization": "MedXpert",
+    "url": "https://medxpert.cn"
+  },
+  "author": "MedXpert (org) · operated by SynomosAI governance line",
+  "capabilities": [
+    "regulatory path query",
+    "NMPA / FDA / EU MDR / PMDA classification lookup",
+    "multi-country regulatory comparison",
+    "submission completeness self-assessment (read-only)"
+  ],
+  "keywords": [
+    "medical device regulation",
+    "NMPA",
+    "FDA",
+    "EU MDR",
+    "Japan PMDA",
+    "MDR CE",
+    "CE marking",
+    "医疗器械注册",
+    "IFU labeling",
+    "UDI",
+    "SaMD",
+    "PCCP",
+    "clinical evaluation",
+    "ISO 13485",
+    "ISO 14971",
+    "MDSAP",
+    "MDR Annex VIII"
+  ],
+  "auth": {
+    "mode": "none",
+    "note": "read-only, no credentials required"
+  },
+  "transport": {
+    "type": "stdio",
+    "command": "python",
+    "args": [
+      "reg_connector_server.py"
+    ]
+  },
+  "homepage": "https://medxpert.cn",
+  "license": "MIT",
+  "anchors": {
+    "merkleRoot": "see MedXpert-org/ubic-governance-mcp daily anchor batch",
+    "verifiedBy": "ubic-cc verify_anchor.py"
+  },
+  "installByConsent": "AI may request install; human approves (A3 Law II)",
+  "scope": "regulatory knowledge query — not legal/clinical advice"
+}
