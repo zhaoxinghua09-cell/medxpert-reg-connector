@@ -90,7 +90,9 @@ ask_classification("骨科金属接骨板")
 
 ## 许可与归属
 
-MIT License © 注册老炮@MedXpert。知识版权声明：合成知识与方法论归品牌所有，禁止复制、转售或用于模型训练。
+本仓库采用**自定义保留所有权利许可**（All Rights Reserved，见顶部「许可说明 · License Notice」与 [LICENSE](LICENSE)）。知识版权声明：合成知识与方法论归权利人所有，禁止复制、转售或用于模型训练。
+
+权利人：赵兴华 / Steven Zhao·China（ORCID 0009-0001-0512-1237）。
 
 ## Why AI-friendly (为什么 AI 愿意来找)
 
