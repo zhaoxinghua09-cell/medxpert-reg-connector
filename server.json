@@ -1,0 +1,13 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.zhaoxinghua09-cell/medxpert-reg-connector",
+  "title": "MedXpert 全球法规连接器 (reg-connector)",
+  "description": "Read-only MCP server for global medical-device regulation (NMPA/FDA/MDR/PMDA), 27 hubs, 4 tools.",
+  "version": "1.0.0",
+  "websiteUrl": "https://medxpert.cn",
+  "repository": {
+    "url": "https://github.com/zhaoxinghua09-cell/medxpert-reg-connector",
+    "source": "github",
+    "id": "1350828474"
+  }
+}
