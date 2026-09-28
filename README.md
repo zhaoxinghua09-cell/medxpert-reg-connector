@@ -48,7 +48,9 @@ pip install fastmcp
 }
 ```
 
-重载 MCP 连接即可生效。`references/` 需与 `reg_connector_server.py` 同级（开箱即用）；也可用环境变量 `REG_HUB_REFS` 指向自定义知识库目录。
+重载 MCP 连接即可生效。`references/` 需与 `reg_connector_server.py` 同级（克隆即用）；也可用环境变量 `REG_HUB_REFS` 指向自定义知识库目录。
+
+> **通过 PyPI 安装（`pip install medxpert-reg-connector`）**：包内含服务器本体，但**不含 28 份知识库**（体积与许可考虑，知识库随仓库分发）。安装后请克隆本仓库的 `references/`，并设 `REG_HUB_REFS=<仓库目录>/references` 指向它，或直接使用上面的「克隆即用」方式。
 
 ## 工具能力
 

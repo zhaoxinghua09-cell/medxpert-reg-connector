@@ -24,6 +24,9 @@ Homepage = "https://medxpert.cn"
 Repository = "https://github.com/zhaoxinghua09-cell/medxpert-reg-connector"
 "Official MCP Registry" = "https://registry.modelcontextprotocol.io/servers/io.github.zhaoxinghua09-cell%2Fmedxpert-reg-connector"
 
+[project.scripts]
+medxpert-reg-connector = "reg_connector_server:main"
+
 [tool.setuptools]
 py-modules = ["reg_connector_server"]
 # 注意：PyPI 包内暂不含 references/ 知识库（28 份枢纽）——

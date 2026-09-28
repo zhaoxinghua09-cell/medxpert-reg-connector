@@ -1,0 +1,55 @@
+name: Publish to PyPI
+
+# Zero-token publishing via PyPI Trusted Publishing (OIDC).
+# Prerequisite (one-time, done by the owner in the PyPI web UI):
+#   PyPI -> Account -> Publishing -> Add a pending publisher
+#     Project name   : medxpert-reg-connector
+#     Owner          : zhaoxinghua09-cell
+#     Repository     : medxpert-reg-connector
+#     Workflow name  : publish-pypi.yml
+#     Environment    : pypi
+# After that, publishing a GitHub Release (or running this workflow manually) ships to PyPI.
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build sdist + wheel
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Build
+        run: |
+          python -m pip install --upgrade build
+          python -m build
+      - name: Show artifacts
+        run: ls -l dist/
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist/
+
+  publish:
+    name: Publish to PyPI (OIDC)
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: pypi
+      url: https://pypi.org/p/medxpert-reg-connector
+    permissions:
+      id-token: write   # required for Trusted Publishing
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist/
+      - uses: pypa/gh-action-pypi-publish@release/v1
