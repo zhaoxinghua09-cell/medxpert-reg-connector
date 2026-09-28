@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "medxpert-reg-connector"
+version = "1.0.0"
+description = "Read-only local MCP server: global medical-device regulatory knowledge hubs (NMPA/FDA/MDR/PMDA), 4 tools, zero egress."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "All Rights Reserved (custom license, see LICENSE)" }
+authors = [{ name = "Steven Zhao" }]
+keywords = ["medical-devices", "nmpa", "fda", "eu-mdr", "pmda", "regulatory", "mcp", "orthopedics"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Healthcare Industry",
+  "Programming Language :: Python :: 3",
+  "Topic :: Scientific/Engineering :: Medical Science Apps.",
+]
+dependencies = ["fastmcp>=0.4"]
+
+[project.urls]
+Homepage = "https://medxpert.cn"
+Repository = "https://github.com/zhaoxinghua09-cell/medxpert-reg-connector"
+"Official MCP Registry" = "https://registry.modelcontextprotocol.io/servers/io.github.zhaoxinghua09-cell%2Fmedxpert-reg-connector"
+
+[tool.setuptools]
+py-modules = ["reg_connector_server"]
+# 注意：PyPI 包内暂不含 references/ 知识库（28 份枢纽）——
+# 装后请从 GitHub 克隆 references/ 到运行目录，或设 REG_HUB_REFS 指向知识库目录。
+# v1.0.1 计划：重构为 medxpert_reg_connector 包目录并打包知识库。

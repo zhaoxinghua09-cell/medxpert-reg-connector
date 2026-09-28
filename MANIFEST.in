@@ -1,0 +1,2 @@
+include LICENSE README.md server.json
+recursive-include references *.md

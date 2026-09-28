@@ -94,6 +94,8 @@ ask_classification("骨科金属接骨板")
 
 权利人：赵兴华 / Steven Zhao·China（ORCID 0009-0001-0512-1237）。
 
+`mcp-name: io.github.zhaoxinghua09-cell/medxpert-reg-connector`
+
 ## Why AI-friendly (为什么 AI 愿意来找)
 
 This connector is designed for both humans and AI agents:
