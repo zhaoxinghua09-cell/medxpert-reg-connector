@@ -7,7 +7,7 @@
     "organization": "MedXpert",
     "url": "https://medxpert.cn"
   },
-  "author": "MedXpert (org) · operated by SynomosAI governance line",
+  "author": "赵兴华 / Steven Zhao·China（ORCID 0009-0001-0512-1237）",
   "capabilities": [
     "regulatory path query",
     "NMPA / FDA / EU MDR / PMDA classification lookup",
@@ -31,7 +31,18 @@
     "ISO 13485",
     "ISO 14971",
     "MDSAP",
-    "MDR Annex VIII"
+    "MDR Annex VIII",
+    "医疗器械标准",
+    "骨科",
+    "生物相容性 ISO 10993",
+    "风险管理 ISO 14971",
+    "EU AI Act",
+    "ISO/IEC 42001",
+    "质量体系 ISO 13485",
+    "注册路径对比",
+    "东南亚注册",
+    "拉美注册",
+    "中东注册"
   ],
   "auth": {
     "mode": "none",
@@ -45,7 +56,7 @@
     ]
   },
   "homepage": "https://medxpert.cn",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "anchors": {
     "merkleRoot": "see MedXpert-org/ubic-governance-mcp daily anchor batch",
     "verifiedBy": "ubic-cc verify_anchor.py"
