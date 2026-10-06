@@ -2,11 +2,11 @@
   "schema": "ownership-attestation/1.0",
   "package": "medxpert-reg-connector",
   "version": "1.0.0",
-  "author": "注册老炮 (MedXpert)",
+  "author": "赵兴华 / Steven Zhao·China (ORCID 0009-0001-0512-1237)",
   "year": "2026",
   "timestamp_utc": "2026-08-29T18:28:26.829624+00:00",
   "timestamp_local": "2026-08-30T02:28:26.829635",
-  "package_fingerprint_sha256": "49138e086f15f217dcaee17f95d85c4dba43efcd05de9ccaad504b12c93cd101",
+  "package_fingerprint_sha256": "b80df05a87d5c59a87a20ee03851c5737074cc30644f592a1a7bf076dbd7effe",
   "files": [
     {
       "path": "LICENSE.md",
@@ -14,7 +14,7 @@
     },
     {
       "path": "SKILL.md",
-      "sha256": "7dc9dd96756aafdc70585703e8d36fb1bce13b3a2d91d4fdb9dbdf0fa85cb9a9"
+      "sha256": "82907fc6578a106c62784f728fa7ea89f7da02c59f7921215addd9d14e4e6f1f"
     },
     {
       "path": "mcp-config.json",
