@@ -1,25 +1,17 @@
 # MedXpert 全球法规连接器（reg-connector）
 ## 许可说明 · License Notice
 
-> **本仓库使用自定义许可，不是 MIT / Apache-2.0**。平台显示为 `Other`（NOASSERTION），
-> 属识别算法的正常结果，**不代表本仓库处于无许可状态**。
+- **代码许可**：本仓库源代码以 **Apache-2.0** 许可发布（见根目录 [LICENSE](LICENSE)），版权归「赵兴华 / Steven Zhao·China（ORCID 0009-0001-0512-1237）」。
+- **知识库 / 方法论**：随仓库分发的知识库、references/、合成法规知识、检索方法论、分类体系与编排结构 **保留所有权利（All Rights Reserved）**；可在注明出处的前提下引用与学术、公共讨论，但未经书面许可不得复制、改编、再分发、转售或用于模型训练。
+- **品牌状态限定**：MedXpert、SynomosAI、LGD 等为相关项目标识，**均未申请实体注册、未申请商标注册**；出现仅作来源标识，不构成对法人实体或商标权的任何主张。
+- **免责**：本仓库内容不构成法规意见、法律意见或注册代理服务；关键数据以监管机构最新发布为准。
+- **联系**：zhaoxinghua09@gmail.com ｜ ORCID 0009-0001-0512-1237
 
-- **权利状态**：全部内容保留所有权利（All Rights Reserved）。未经书面许可，
-  不得复制、改编、再分发、公开传播或用于衍生作品。
-- **可否引用**：可以。允许在**注明出处**的前提下引用与学术、公共讨论；
-  引用时请同时标注仓库名、原文链接 `https://github.com/zhaoxinghua09-cell/medxpert-reg-connector`
-  与权利人「赵兴华 / Steven Zhao·China」。
-- **完整条款**：见仓库根目录 [LICENSE](LICENSE)。
-- **联系**：zhaoxinghua06@126.com ｜ ORCID 0009-0001-0512-1237
-- **品牌状态限定**：MedXpert、SynomosAI、LGD 等为相关项目标识，
-  **均未申请实体注册、未申请商标注册**；出现仅作来源标识，
-  不构成对法人实体或商标权的任何主张。
-- **免责**：本仓库内容不构成法规意见或注册代理服务；关键数据以监管机构最新发布为准。
 
 ---
 
 
-MedXpert（美达信医疗）医械线对外接口。将全球医疗器械法规知识库（27 份枢纽资料，**NMPA / FDA / EU MDR / PMDA 及骨科全球注册路径**）封装为**本地只读 MCP Server**，供任意 MCP 客户端（WorkBuddy / Claude Code / Cursor 等）的 agent 直接调用检索。
+MedXpert 医械线对外接口。将全球医疗器械法规知识库（27 份枢纽资料，**NMPA / FDA / EU MDR / PMDA 及骨科全球注册路径**）封装为**本地只读 MCP Server**，供任意 MCP 客户端（WorkBuddy / Claude Code / Cursor 等）的 agent 直接调用检索。
 
 - 🔒 **本地只读、零网络外发、零凭据**
 - 📚 27 枢纽法规知识库，自研中文友好 BM25 近似检索
@@ -50,7 +42,7 @@ pip install fastmcp
 
 重载 MCP 连接即可生效。`references/` 需与 `reg_connector_server.py` 同级（克隆即用）；也可用环境变量 `REG_HUB_REFS` 指向自定义知识库目录。
 
-> **通过 PyPI 安装（`pip install medxpert-reg-connector`）**：包内含服务器本体，但**不含 28 份知识库**（体积与许可考虑，知识库随仓库分发）。安装后请克隆本仓库的 `references/`，并设 `REG_HUB_REFS=<仓库目录>/references` 指向它，或直接使用上面的「克隆即用」方式。
+> **通过 PyPI 安装（`pip install medxpert-reg-connector`）**：包内含服务器本体，但**不含 27 份知识库**（体积与许可考虑，知识库随仓库分发）。安装后请克隆本仓库的 `references/`，并设 `REG_HUB_REFS=<仓库目录>/references` 指向它，或直接使用上面的「克隆即用」方式。
 
 ## 工具能力
 
@@ -92,9 +84,7 @@ ask_classification("骨科金属接骨板")
 
 ## 许可与归属
 
-本仓库采用**自定义保留所有权利许可**（All Rights Reserved，见顶部「许可说明 · License Notice」与 [LICENSE](LICENSE)）。知识版权声明：合成知识与方法论归权利人所有，禁止复制、转售或用于模型训练。
-
-权利人：赵兴华 / Steven Zhao·China（ORCID 0009-0001-0512-1237）。
+本仓库源代码以 **Apache-2.0** 许可发布（见 [LICENSE](LICENSE)），版权归「赵兴华 / Steven Zhao·China（ORCID 0009-0001-0512-1237）」；随仓库分发的知识库 / references/ / 合成法规知识 / 检索方法论 / 分类体系 **保留所有权利**，可在注明出处前提下引用，但不得复制、转售或用于模型训练。
 
 `mcp-name: io.github.zhaoxinghua09-cell/medxpert-reg-connector`
 
