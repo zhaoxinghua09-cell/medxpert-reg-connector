@@ -23,7 +23,7 @@
 - 发布时间（本地）：2026-08-30T02:28:26.829635
 
 ## 5. 作品指纹（内容哈希）
-- 包指纹 SHA-256：be60e256833db0b9452579946ef26961312bb0cdf07cfd59c3df54a59f10d615
+- 包指纹 SHA-256：006c064f845d6de7326ad4e0880148d849ace3f011c8e6a9ef855bac3d85faca
 - 本指纹由发布包内全部文件的哈希按确定顺序合成，可作为该版本
   「于上述时间由 赵兴华 / Steven Zhao·China (ORCID 0009-0001-0512-1237) 发布」的完整性标识。篡改任一文件即导致指纹变化。
 - 加强权属：可将本指纹锚定至可信时间戳服务（RFC3161 TSA）或区块链，
@@ -32,8 +32,8 @@
 ## 附：文件清单与逐文件哈希
 | 文件 | SHA-256 |
 |---|---|
-| LICENSE.md | 2536fdd650ec4de01f3dda836beb4d441607d730cd29a054e23fac0fa4b8474d |
-| SKILL.md | 82907fc6578a106c62784f728fa7ea89f7da02c59f7921215addd9d14e4e6f1f |
+| LICENSE | a431f5963d4edb917e060b3262fb4b0d1d57961ae502c61a0135aaf4102b0cf2 |
+| SKILL.md | ce2e69e3eb516ac544465b2940960b340ac4d790203e87e711a126cbdf4c85c7 |
 | mcp-config.json | b60b039878e415b1bd31cc95cfa484329b281fd688031bae743e782187b6f680 |
 | references/CN_医疗器械委托生产MAH实务.md | fe0cb05f7ddf9975aded6e5f9681f92c5661e3acc2eddf62b012310561419a87 |
 | references/EU_EUDAMED数据库实务.md | 1c31e8d38d23e0378ea633e6a75263a3352bb03bb1f312b6e0e539df66cabec0 |
