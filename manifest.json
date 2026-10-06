@@ -6,15 +6,15 @@
   "year": "2026",
   "timestamp_utc": "2026-08-29T18:28:26.829624+00:00",
   "timestamp_local": "2026-08-30T02:28:26.829635",
-  "package_fingerprint_sha256": "be60e256833db0b9452579946ef26961312bb0cdf07cfd59c3df54a59f10d615",
+  "package_fingerprint_sha256": "006c064f845d6de7326ad4e0880148d849ace3f011c8e6a9ef855bac3d85faca",
   "files": [
     {
-      "path": "LICENSE.md",
-      "sha256": "2536fdd650ec4de01f3dda836beb4d441607d730cd29a054e23fac0fa4b8474d"
+      "path": "LICENSE",
+      "sha256": "a431f5963d4edb917e060b3262fb4b0d1d57961ae502c61a0135aaf4102b0cf2"
     },
     {
       "path": "SKILL.md",
-      "sha256": "82907fc6578a106c62784f728fa7ea89f7da02c59f7921215addd9d14e4e6f1f"
+      "sha256": "ce2e69e3eb516ac544465b2940960b340ac4d790203e87e711a126cbdf4c85c7"
     },
     {
       "path": "mcp-config.json",
