@@ -3,7 +3,7 @@
   "name": "MedXpert 全球法规连接器",
   "version": "1.2.0",
   "description": "Medical-device regulatory knowledge connector. Read-only MCP runtime for querying NMPA / FDA / EU MDR / Japan PMDA / SE Asia / LATAM regulatory hubs across 27 knowledge pivots. 4 tools, zero credentials, zero network egress, audit-traceable.",
-  "author": "MedXpert (org)",
+  "author": "赵兴华 / Steven Zhao·China（ORCID 0009-0001-0512-1237）",
   "type": "mcp-server",
   "tools": [
     "list_hubs",
