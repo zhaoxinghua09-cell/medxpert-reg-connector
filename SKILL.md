@@ -8,8 +8,8 @@ version: 1.0.0
 category: knowledge-management
 xiaping_category: ["学术研究"]
 platforms: [WorkBuddy, QClaw, ima, Claude Code, Cursor]
-author: 注册老炮@MedXpert
-license: MIT
+author: 赵兴华 / Steven Zhao·China (ORCID 0009-0001-0512-1237)
+license: Apache-2.0
 description: 医疗器械注册法规检索 MCP 连接器，覆盖 MDR/CE、FDA 510(k)、UDI、STED、分类界定、全球注册路径等场景；agent 通过 MCP 本地只读检索 NMPA/FDA/MDR/PMDA 等 27 枢纽法规知识库，无需联网外发、无需凭据。
 description_en: An MCP connector for medical device regulatory retrieval, covering MDR/CE, FDA 510(k), UDI, STED, classification, and global registration pathways. Agents query the local read-only NMPA/FDA/MDR/PMDA 27-hub regulation knowledge base via MCP—no network egress, no credentials.
 tags: ["医疗器械注册","MCP","reg-connector","NMPA","FDA 510(k)","MDR CE","UDI","STED","分类界定","全球注册","法规连接器","AI Agent"]
@@ -84,6 +84,6 @@ pip install fastmcp
 
 ## 7. 许可与归属
 
-MIT License，© 2026 注册老炮@MedXpert。
+Apache-2.0，© 2026 赵兴华 / Steven Zhao·China (ORCID 0009-0001-0512-1237)。
 
-知识版权声明：本包所含合成知识与方法论归 MedXpert（美达信医疗）品牌所有，禁止复制、转售或用于模型训练。
+知识版权声明：本包所含合成知识与方法论归 赵兴华 / Steven Zhao·China（ORCID 0009-0001-0512-1237）所有，保留所有权利，禁止复制、转售或用于模型训练；MedXpert / SynomosAI 为相关项目标识，均未申请实体注册、未申请商标注册，仅作来源标识。
