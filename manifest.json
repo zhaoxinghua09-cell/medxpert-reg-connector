@@ -6,7 +6,7 @@
   "year": "2026",
   "timestamp_utc": "2026-08-29T18:28:26.829624+00:00",
   "timestamp_local": "2026-08-30T02:28:26.829635",
-  "package_fingerprint_sha256": "b80df05a87d5c59a87a20ee03851c5737074cc30644f592a1a7bf076dbd7effe",
+  "package_fingerprint_sha256": "be60e256833db0b9452579946ef26961312bb0cdf07cfd59c3df54a59f10d615",
   "files": [
     {
       "path": "LICENSE.md",
@@ -38,11 +38,11 @@
     },
     {
       "path": "references/FDA创伤敷料供应链穿透检查枢纽.md",
-      "sha256": "c4ba7e3ed5f769ea7565d4ef068fc2dd0d924a09a5d2aebf6bcb3b0dafe08957"
+      "sha256": "0cfbfdb94fdc7e36030c34e93fa1cc0a8f85332e8f9c46249b43295424cf8b96"
     },
     {
       "path": "references/GMP质量体系与验证枢纽.md",
-      "sha256": "e52a8898791e9fcb26f5d998432125cb2b9b836474bf5840a1c009b866d11fe7"
+      "sha256": "571b953db0e5913b9fb25a4e6227f9ee926252de513cae2db8993cd4abea8a4a"
     },
     {
       "path": "references/README.md",
@@ -50,11 +50,11 @@
     },
     {
       "path": "references/UDI全球标识枢纽.md",
-      "sha256": "3d3873a6205bb65fdbfe3cfb8a040f5a11ae462452ee1bd361e98760bb3eadbd"
+      "sha256": "4390655c486e09b46cbaa08aa874146e6597ca17521184f659f95d2f859b5883"
     },
     {
       "path": "references/上市后监管枢纽.md",
-      "sha256": "0380df5b24a9d6b64dff3891bb2fbf6edc9988ed8f96624ed4cc9d0ddc777382"
+      "sha256": "6e99491319e62e0286ca2554d843ffb572affad7ed89f5f6df071cb7b3013b16"
     },
     {
       "path": "references/临床评价枢纽.md",
@@ -62,7 +62,7 @@
     },
     {
       "path": "references/原材料供应商合规枢纽.md",
-      "sha256": "cd2a2abbef592b27368abae2ed72ca5316a4e4dbaa57daff96e21e43e1a98a9b"
+      "sha256": "510b881ed03681c87b3b68d3326976ad82878ea9ed66206a1a9cb7c79bfc4426"
     },
     {
       "path": "references/变更延续管理枢纽.md",
@@ -82,7 +82,7 @@
     },
     {
       "path": "references/技术文件STED撰写枢纽.md",
-      "sha256": "bef150908b3d098c226c8a5830b6d57f708ff2d6876ade2d204bc43bd714a635"
+      "sha256": "5a6bfad4386a5d2bb503b24a6d3b75c5985b091a6c00a489e027cba21dd8ef87"
     },
     {
       "path": "references/枢纽总览_全生命周期7阶段纲领.md",
@@ -90,15 +90,15 @@
     },
     {
       "path": "references/标签与IFU枢纽.md",
-      "sha256": "db752ed1de8a8e7caa9cf78876e00f116522afaf2b9213455893974a63ff0f94"
+      "sha256": "e1c2895e3453860c83af8845cc1aa429f7927e468c59dbd8a9b119a6ca369a62"
     },
     {
       "path": "references/注册周期费用有效期对比枢纽.md",
-      "sha256": "c3ce9a9f425b98b913b2a6055250c6ff6303991b799cf67bc74859453b3f523f"
+      "sha256": "5375f4614160ffe0110781d9f428d8ab420028421dee74dedabf5f51bbbfe436"
     },
     {
       "path": "references/注册工程师资料枢纽.md",
-      "sha256": "641cb541cff8fa85be2fc6438d97898bea986405e3de2a77b8fa4bff8910bc16"
+      "sha256": "1e8ceab7b9112fbd73e48d27c5ebcba6bc680f55b45371915b30acdf3db5b0df"
     },
     {
       "path": "references/注册检验与申报实操枢纽.md",
@@ -110,7 +110,7 @@
     },
     {
       "path": "references/生物相容性测试规划枢纽.md",
-      "sha256": "12455c15d6ec383b7954785ce6ca2619065d4e6de3d8749a15bae031406c054e"
+      "sha256": "8a89849ea1428e270167799600e2dd1907498867f1de5a7dbf2661f3c66f54cf"
     },
     {
       "path": "references/设计开发控制枢纽.md",
@@ -130,7 +130,7 @@
     },
     {
       "path": "references/骨科手术器械_全球注册路径汇编.md",
-      "sha256": "5b4716a3a31a013e18d37715db52a52a2937c1c53aeaf0ff5816c57c69b00866"
+      "sha256": "1966f47e44e5a1ea94d3a845d34e8fe615f3bfb8481723ac2122ee39354a8198"
     },
     {
       "path": "reg_connector_server.py",
