@@ -151,28 +151,3 @@
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
    limitations under the License.
-
-------------------------------------------------------------------------------
-KNOWLEDGE BASE / METHODOLOGY RESERVATION — 保留所有权利（知识库与方法论）
-------------------------------------------------------------------------------
-（以下保留声明仅约束知识库/方法论内容，不影响上文 Apache-2.0 代码许可。）
-
-The source code of this repository is licensed under the Apache License 2.0
-above. However, the bundled knowledge base, references/, synthesized
-regulatory/methodology knowledge, retrieval methodology, classification
-system and editorial structure (where present) are NOT licensed under
-Apache-2.0.
-
-All rights reserved. The knowledge base / methodology may be quoted for
-academic or public discussion WITH attribution (repository name, original
-link, and rights holder "赵兴华 / Steven Zhao·China（ORCID 0009-0001-0512-1237）"), but may not be copied,
-redistributed, repurposed, or used to train any model (commercial or
-open-source) without prior written permission.
-
-Brand status: MedXpert / SynomosAI / LGD are project identifiers only; none
-is a registered legal entity and none has a registered trademark. Their
-appearance is for source identification only and does not constitute any
-claim to a legal entity or trademark right.
-
-Disclaimer: content is not regulatory, legal, or medical advice. Always rely
-on the latest official publication of the competent authority.
