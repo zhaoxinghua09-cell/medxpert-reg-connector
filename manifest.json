@@ -1,7 +1,7 @@
 {
   "schema": "ownership-attestation/1.0",
   "package": "medxpert-reg-connector",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "赵兴华 / Steven Zhao·China (ORCID 0009-0001-0512-1237)",
   "year": "2026",
   "timestamp_utc": "2026-08-29T18:28:26.829624+00:00",
@@ -134,7 +134,7 @@
     },
     {
       "path": "reg_connector_server.py",
-      "sha256": "26a927a0ff6e54de810067e3c0e0f99c5a8456253bd4ab1ddb2864ff69f9c625"
+      "sha256": "4ddfd9f9c287a4626915d8dde5ec5794d4e2691b0766c5a2065511626230b720"
     }
   ]
 }

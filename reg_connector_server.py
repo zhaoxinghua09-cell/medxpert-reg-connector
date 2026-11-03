@@ -49,7 +49,7 @@ def _resolve_refs_dir() -> Path:
 REFS_DIR = _resolve_refs_dir()
 
 SERVER_NAME = "medxpert-reg-connector"
-SERVER_VERSION = "1.0.0"
+SERVER_VERSION = "1.1.0"
 SERVER_DESC = (
     "MedXpert 全球法规连接器：本地只读检索全球医疗器械法规知识库 "
     "(NMPA/FDA/MDR/PMDA 等 27 枢纽 + 骨科实证)，返回片段、官方链接与待核验标注。"
@@ -311,6 +311,60 @@ def _phase_of(content: str) -> str:
         if kw in content[:800]:
             return phase
     return "综合"
+
+
+# ---------------------------------------------------------------------------
+# MCP Prompts（提示词，供客户端编排）
+# ---------------------------------------------------------------------------
+@mcp.prompt()
+def hub_navigation() -> str:
+    """引导用户浏览法规知识库全景并定位目标枢纽。"""
+    keys = ", ".join(sorted(HUB_FILES.keys()))
+    return (
+        "你是医疗器械法规检索助手。先调用 list_hubs 查看可用枢纽，"
+        "再根据用户问题选择目标枢纽调用 get_hub 或 search_regulation。"
+        f"当前知识库枢纽：{keys}。返回结果需注明'知识库线索，非官方结论'。"
+    )
+
+
+@mcp.prompt()
+def registration_path_quick_start() -> str:
+    """注册路径速查引导：产品 → 分类 → 注册路径。"""
+    return (
+        "用户询问医疗器械注册路径时，按三步作答：\n"
+        "1) 用 ask_classification 对产品描述做分类速查；\n"
+        "2) 用 get_hub 取目标市场枢纽全文（如注册检验与申报实操枢纽、市场准入与销售枢纽）；\n"
+        "3) 汇总官方链接并标注'分类与路径须以目标市场官方分类库为准'。"
+    )
+
+
+# ---------------------------------------------------------------------------
+# MCP Resources（资源，供客户端附加上下文）
+# ---------------------------------------------------------------------------
+@mcp.resource("reg://hubs")
+def hubs_index() -> str:
+    """知识库枢纽索引（hub_key → title），JSON 数组。"""
+    hubs = [{"hub_key": k, "title": v["title"], "sections": len(v["sections"])}
+            for k, v in sorted(HUB_FILES.items())]
+    return json.dumps(hubs, ensure_ascii=False, indent=2)
+
+
+@mcp.resource("reg://hub/{hub_key}")
+def hub_content(hub_key: str) -> str:
+    """指定枢纽的完整整理内容（含全部小节与官方链接）。"""
+    hub = HUB_FILES.get(hub_key)
+    if not hub:
+        return json.dumps({"error": f"未找到枢纽 {hub_key}"}, ensure_ascii=False)
+    return json.dumps(
+        {
+            "hub_key": hub_key,
+            "title": hub["title"],
+            "content": hub["content"],
+            "official_links": hub["links"],
+        },
+        ensure_ascii=False,
+        indent=2,
+    )
 
 
 # ---------------------------------------------------------------------------
