@@ -1,4 +1,7 @@
 # MedXpert 全球法规连接器（reg-connector）
+
+[![MCP Badge](https://lobehub.com/badge/mcp/zhaoxinghua09-cell-medxpert-reg-connector)](https://lobehub.com/mcp/zhaoxinghua09-cell-medxpert-reg-connector) [![MCP Badge Full](https://lobehub.com/badge/mcp-full/zhaoxinghua09-cell-medxpert-reg-connector?theme=light)](https://lobehub.com/mcp/zhaoxinghua09-cell-medxpert-reg-connector)
+
 ## 许可说明 · License Notice
 
 - **代码许可**：本仓库源代码以 **Apache-2.0** 许可发布（见根目录 [LICENSE](LICENSE)），版权归「赵兴华 / Steven Zhao·China（ORCID 0009-0001-0512-1237）」。
