@@ -1,0 +1,135 @@
+{
+  "identifier": "zhaoxinghua09-cell-medxpert-reg-connector",
+  "name": "MedXpert Global Regulatory Connector (reg-connector)",
+  "description": "Read-only local MCP server for global medical-device regulation (NMPA / FDA / EU MDR / PMDA and orthopedic global registration pathways). Wraps 27 regulatory knowledge hubs into 7 tools for any MCP client to query — zero network egress, zero credentials, on-premise compliant.",
+  "version": "1.2.0",
+  "author": "赵兴华 / Steven Zhao·China",
+  "authorUrl": "https://github.com/zhaoxinghua09-cell",
+  "homepage": "https://github.com/zhaoxinghua09-cell/medxpert-reg-connector",
+  "tags": [
+    "medical-device",
+    "regulatory-compliance",
+    "MCP",
+    "knowledge-base",
+    "local",
+    "read-only",
+    "BM25",
+    "NMPA",
+    "FDA",
+    "EU-MDR",
+    "PMDA"
+  ],
+  "tools": [
+    {
+      "name": "list_hubs",
+      "description": "列出法规知识库全部枢纽（主题）及覆盖范围、时效状态，返回 JSON 数组。",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "search_regulation",
+      "description": "在法规知识库中检索关键词（支持中文/英文/法规号，如 'UDI'、'510k'、'MDR PMS'、'委托生产'）。返回命中的枢纽、小节、摘要片段、官方链接、相关度得分与时效标注(as_of/freshness)。",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string"
+          },
+          "top_k": {
+            "type": "integer",
+            "default": 5
+          },
+          "hub_filter": {
+            "type": "string",
+            "default": null
+          }
+        },
+        "required": ["query"],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "get_hub",
+      "description": "按 hub_key 取某一枢纽的完整整理内容（含全部小节与官方链接、时效与标准指针）。先调用 list_hubs 查看可用 hub_key。",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "hub_key": {
+            "type": "string"
+          }
+        },
+        "required": ["hub_key"],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "ask_classification",
+      "description": "产品分类与注册路径速查：输入产品描述（如 '骨科金属接骨板'、'一次性使用输液器'），返回相关枢纽、分类线索、官方链接与注册路径建议。",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "product": {
+            "type": "string"
+          }
+        },
+        "required": ["product"],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "kb_freshness",
+      "description": "报告知识库新鲜度：全库统计 + 逐枢纽 as_of/age_days/freshness/next_review，并列出逾期未复核的枢纽。法规会更新，调用知识前建议先查新鲜度。",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "reg_delta",
+      "description": "列出巡检发现的法规变更流水（读 registry.deltas）。可选按起始日期(since, YYYY-MM-DD)与辖区(jurisdiction: CN/US/EU/JP/GLOBAL)过滤。无巡检记录时返回空并提示如何产生。",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "since": {
+            "type": "string",
+            "default": null
+          },
+          "jurisdiction": {
+            "type": "string",
+            "default": null
+          },
+          "limit": {
+            "type": "integer",
+            "default": 50
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "kb_sources",
+      "description": "列出官方源注册表（sources.json）：各源权威机构、巡检通道(api/rss/page/sparql/catalog)、巡检频率、是否可全自动、版权等级。可选按辖区过滤。",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "jurisdiction": {
+            "type": "string",
+            "default": null
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  ],
+  "localizations": [
+    {
+      "locale": "zh-CN",
+      "name": "MedXpert 全球法规连接器 (reg-connector)",
+      "description": "本地只读 MCP 服务器，覆盖全球医疗器械法规（NMPA / FDA / EU MDR / PMDA 及骨科全球注册路径）。将 27 份法规知识枢纽封装为 7 个工具，供任意 MCP 客户端直接检索——本地只读、零网络外发、零凭据，适合内网/合规环境。"
+    }
+  ]
+}
