@@ -1,24 +1,24 @@
 {
   "schema": "ownership-attestation/1.0",
   "package": "medxpert-reg-connector",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "author": "赵兴华 / Steven Zhao·China (ORCID 0009-0001-0512-1237)",
   "year": "2026",
-  "timestamp_utc": "2026-08-29T18:28:26.829624+00:00",
-  "timestamp_local": "2026-08-30T02:28:26.829635",
-  "package_fingerprint_sha256": "006c064f845d6de7326ad4e0880148d849ace3f011c8e6a9ef855bac3d85faca",
+  "timestamp_utc": "2026-11-04T12:10:57.997120+00:00",
+  "timestamp_local": "2026-11-04T20:10:57",
+  "package_fingerprint_sha256": "cae1cdcb94f2129af5a0407156f2a3c786665cba8369b0bb3b1843e5aea6e131",
   "files": [
     {
       "path": "LICENSE",
-      "sha256": "a431f5963d4edb917e060b3262fb4b0d1d57961ae502c61a0135aaf4102b0cf2"
+      "sha256": "1dcb7da9d94a5e19f51ccb2f56c5d66ef3d0f9a0de4e4388d01c8a497c0cbaa5"
     },
     {
       "path": "SKILL.md",
-      "sha256": "ce2e69e3eb516ac544465b2940960b340ac4d790203e87e711a126cbdf4c85c7"
+      "sha256": "e36136311a531b592c0e041caface1c029e460d7d6520693101c0ed5c3b51406"
     },
     {
       "path": "mcp-config.json",
-      "sha256": "b60b039878e415b1bd31cc95cfa484329b281fd688031bae743e782187b6f680"
+      "sha256": "8f98c1064359f12add3d4e5c93e70fd4d498971e382dc3777fc14d8dfda98b82"
     },
     {
       "path": "references/CN_医疗器械委托生产MAH实务.md",
@@ -134,7 +134,15 @@
     },
     {
       "path": "reg_connector_server.py",
-      "sha256": "4ddfd9f9c287a4626915d8dde5ec5794d4e2691b0766c5a2065511626230b720"
+      "sha256": "e6a99d43944f22830dd4b9178a2368ecc50df491e46595ade5e1f08a359462e3"
+    },
+    {
+      "path": "registry.json",
+      "sha256": "e8ecea46d6f7303eb8aeeb13babd9893fb17f5d2ccc4e8568d1509ba91e4781b"
+    },
+    {
+      "path": "sources.json",
+      "sha256": "44f37171c06ae7d5ba8f3a896ba82584a569408b59f4a7414472a528b868b41f"
     }
   ]
 }

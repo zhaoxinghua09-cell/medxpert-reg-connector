@@ -1,2 +1,2 @@
-include LICENSE README.md server.json
+include LICENSE README.md server.json registry.json sources.json
 recursive-include references *.md

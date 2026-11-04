@@ -14,7 +14,7 @@ The public interface of the MedXpert medical-device line. It packages a global m
 
 - 🔒 **Local-only, read-only: zero network egress, zero credentials**
 - 📚 27 regulatory hubs with a custom Chinese-friendly BM25 approximate retrieval engine
-- 🧰 4 tools: `list_hubs` / `search_regulation` / `get_hub` / `ask_classification`
+- 🧰 7 tools: `list_hubs` / `search_regulation` / `get_hub` / `ask_classification` / `kb_freshness` / `reg_delta` / `kb_sources`
 
 > Complementary to the `medxpert-reg-hub` knowledge skill: reg-hub lets an agent **read** knowledge; reg-connector lets an agent **call** retrieval.
 
@@ -45,12 +45,22 @@ Reload the MCP connection. `references/` must sit next to `reg_connector_server.
 
 ## Tools
 
+**Retrieval tools (original 4)**
+
 | Tool | Input | Returns | Purpose |
 |------|-------|---------|---------|
 | `list_hubs()` | none | all hubs (hub_key / title / sections / official_links / phase) | Overview of the knowledge base |
 | `search_regulation(query, top_k=5, hub_filter=None)` | keywords (CN/EN/regulation number, e.g. `UDI`/`510k`/`MDR PMS`/`委托生产`) | matched hub_key/title/section/snippet/score/links | Regulation entry retrieval |
 | `get_hub(hub_key)` | hub key (from `list_hubs`) | full text + official links | Retrieve a full hub document |
 | `ask_classification(product)` | product description (e.g. `骨科金属接骨板`) | matches + recommended_hubs + hint | Quick classification & registration-path lookup |
+
+**Freshness tools (added in v1.2.0)**
+
+| Tool | Input | Returns | Purpose |
+|------|-------|---------|---------|
+| `kb_freshness()` | none | per-hub as_of / age_days / freshness(ok·aging·stale) / overdue list | Knowledge-base freshness self-check |
+| `reg_delta(since, jurisdiction, limit)` | since(YYYY-MM-DD)/jurisdiction/limit | regulatory change log from inspection (registry.deltas) | What changed recently |
+| `kb_sources(jurisdiction)` | jurisdiction (optional) | official-source registry (agency/channel/frequency/copyright tier) | Which official sources we track |
 
 ## Usage Examples
 

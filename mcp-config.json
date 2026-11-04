@@ -6,7 +6,7 @@
         "<medxpert-reg-connector 包目录>/reg_connector_server.py"
       ],
       "disabled": false,
-      "description": "MedXpert 全球法规连接器：本地只读检索全球医疗器械法规知识库 (NMPA/FDA/MDR/PMDA 等 27 枢纽)"
+      "description": "MedXpert 全球法规连接器：本地只读 MCP，7 工具检索全球医疗器械法规知识库 (NMPA/FDA/MDR/PMDA 等 27 枢纽)"
     }
   }
 }

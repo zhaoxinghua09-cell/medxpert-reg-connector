@@ -35,7 +35,7 @@ MedXpert 医械线对外接口。将全球医疗器械法规知识库（27 份�
 
 - 📚 27 枢纽法规知识库，自研中文友好 BM25 近似检索
 
-- 🧰 4 个工具：`list_hubs` / `search_regulation` / `get_hub` / `ask_classification`
+- 🧰 7 个工具：`list_hubs` / `search_regulation` / `get_hub` / `ask_classification` / `kb_freshness` / `reg_delta` / `kb_sources`
 
 
 
@@ -97,17 +97,22 @@ pip install fastmcp
 
 
 
+**检索类（原 4 个）**
+
 | 工具 | 入参 | 返回 | 用途 |
-
 |------|------|------|------|
-
 | `list_hubs()` | 无 | 全部枢纽（hub_key / title / sections / official_links / phase） | 列出知识库全景 |
-
 | `search_regulation(query, top_k=5, hub_filter=None)` | 关键词（中/英/法规号，如 `UDI`/`510k`/`MDR PMS`/`委托生产`） | 命中 hub_key/title/section/snippet/score/links | 法规条目检索 |
-
 | `get_hub(hub_key)` | 枢纽 key（先由 `list_hubs` 取得） | 完整正文 + 官方链接 | 取某枢纽全量内容 |
-
 | `ask_classification(product)` | 产品描述（如 `骨科金属接骨板`） | matches + recommended_hubs + hint | 分类与注册路径速查 |
+
+**时效类（v1.2.0 新增）**
+
+| 工具 | 入参 | 返回 | 用途 |
+|------|------|------|------|
+| `kb_freshness()` | 无 | 各枢纽 as_of / age_days / freshness(ok·aging·stale) / 逾期列表 | 知识库新鲜度自检 |
+| `reg_delta(since, jurisdiction, limit)` | 起始日(YYYY-MM-DD)/辖区/条数 | 巡检发现的法规变更流水（registry.deltas） | 最近法规变了什么 |
+| `kb_sources(jurisdiction)` | 辖区(可选) | 官方源注册表（机构/通道/频率/版权等级） | 我们盯哪些官方源 |
 
 
 

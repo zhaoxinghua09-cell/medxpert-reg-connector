@@ -4,7 +4,7 @@ slug: medxpert-reg-connector
 title: MedXpert 全球法规连接器（MCP）
 displayName: MedXpert·全球法规连接器
 display_name: MedXpert·全球法规连接器
-version: 1.0.0
+version: 1.2.0
 category: knowledge-management
 xiaping_category: ["学术研究"]
 platforms: [WorkBuddy, QClaw, ima, Claude Code, Cursor]
@@ -26,14 +26,14 @@ reg-connector 是 MedXpert（美达信医疗）医械线的对外接口，把 Me
 
 ## 2. 能力清单
 
-基于 FastMCP stdio 协议（依赖 `fastmcp`），提供 4 个工具：
+基于 FastMCP stdio 协议（依赖 `fastmcp`），提供 7 个工具：
 
 - `list_hubs()` — 返回全部枢纽 JSON：`hub_key / title / sections / official_links / phase`。先调它拿到 key。
 - `search_regulation(query: str, top_k: int = 5, hub_filter: str = None)` — 关键词检索（中/英/法规号，如 `UDI`、`510k`、`MDR PMS`、`委托生产`）。返回 `hub_key / title / section / snippet / score / links`。query 为空报错。
 - `get_hub(hub_key: str)` — 取某枢纽完整内容（`content + official_links`）。
 - `ask_classification(product: str)` — 产品分类与注册路径速查，返回 `matches + recommended_hubs + hint`。product 为空报错。
 
-服务端标识：`SERVER_NAME = "medxpert-reg-connector"`，版本 1.0.0。
+服务端标识：`SERVER_NAME = "medxpert-reg-connector"`，版本 1.2.0。
 
 ## 3. 一键安装（3 步）
 

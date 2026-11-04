@@ -1,0 +1,1159 @@
+{
+  "schema": "reg-nav/1.0",
+  "description": "MedXpert 全球法规知识库·结构化台账（单一真源）。records = 检索内容；standards_index = 付费标准指针（永不存全文）；deltas = 巡检变更流水。",
+  "generated_at": "2026-09-12T13:22:24",
+  "knowledge_base_version": "1.2.0",
+  "freshness_policy": {
+    "ok_days": 90,
+    "aging_days": 180
+  },
+  "hubs": {
+    "CN_医疗器械委托生产MAH实务": {
+      "title": "中国医疗器械委托生产（注册人制度）实务",
+      "file": "references/CN_医疗器械委托生产MAH实务.md",
+      "as_of": "2026-08-27",
+      "content_dates_through": null,
+      "verified": "human",
+      "copyright": "original",
+      "authorities": [
+        "CN"
+      ],
+      "official_links": 3,
+      "sections": 9,
+      "standards_ref": [],
+      "next_review": "2026-09-03",
+      "poll_sources": [
+        "cn-nmpa-fgwj"
+      ]
+    },
+    "EU_EUDAMED数据库实务": {
+      "title": "EUDAMED 欧盟医疗器械数据库实务",
+      "file": "references/EU_EUDAMED数据库实务.md",
+      "as_of": "2026-08-27",
+      "content_dates_through": "2026-05-28",
+      "verified": "human",
+      "copyright": "original",
+      "authorities": [
+        "EU"
+      ],
+      "official_links": 5,
+      "sections": 7,
+      "standards_ref": [],
+      "next_review": "2026-09-03",
+      "poll_sources": [
+        "eu-eurlex",
+        "eu-eudamed"
+      ]
+    },
+    "EU_MDR上市后监管PMS实务": {
+      "title": "EU MDR 上市后监管（PMS）实务",
+      "file": "references/EU_MDR上市后监管PMS实务.md",
+      "as_of": "2026-08-27",
+      "content_dates_through": null,
+      "verified": "human",
+      "copyright": "original",
+      "authorities": [
+        "EU"
+      ],
+      "official_links": 3,
+      "sections": 8,
+      "standards_ref": [],
+      "next_review": "2026-09-03",
+      "poll_sources": [
+        "eu-eurlex",
+        "eu-mdcg"
+      ]
+    },
+    "FDA_UDI实施实务": {
+      "title": "FDA UDI 实施实务",
+      "file": "references/FDA_UDI实施实务.md",
+      "as_of": "2026-08-27",
+      "content_dates_through": "2022-12-08",
+      "verified": "human",
+      "copyright": "original",
+      "authorities": [
+        "FDA"
+      ],
+      "official_links": 5,
+      "sections": 8,
+      "standards_ref": [],
+      "next_review": "2026-09-03",
+      "poll_sources": [
+        "us-openfda"
+      ]
+    },
+    "FDA创伤敷料供应链穿透检查枢纽": {
+      "title": "FDA 质量体系核查下的敷料供应链溯源（注册老炮知识库）",
+      "file": "references/FDA创伤敷料供应链穿透检查枢纽.md",
+      "as_of": "2026-08-27",
+      "content_dates_through": "2026-02-02",
+      "verified": "human",
+      "copyright": "original",
+      "authorities": [
+        "FDA"
+      ],
+      "official_links": 3,
+      "sections": 5,
+      "standards_ref": [
+        "ISO 10993"
+      ],
+      "next_review": "2026-09-26",
+      "poll_sources": []
+    },
+    "GMP质量体系与验证枢纽": {
+      "title": "GMP / 质量体系与验证枢纽",
+      "file": "references/GMP质量体系与验证枢纽.md",
+      "as_of": "2026-08-27",
+      "content_dates_through": "2015-10-01",
+      "verified": "human",
+      "copyright": "original",
+      "authorities": [
+        "ISO",
+        "FDA",
+        "CN"
+      ],
+      "official_links": 9,
+      "sections": 7,
+      "standards_ref": [
+        "ISO 13485",
+        "ISO 14644",
+        "ISO 13485:2016",
+        "ISO 14971",
+        "ISO 14971:2019",
+        "ISO 14644-1",
+        "ISO 14644-2",
+        "GB/T 42062",
+        "GB/T 42062-2022",
+        "GB 50073",
+        "YY 0033",
+        "ASTM F3127",
+        "MDR 2017/745"
+      ],
+      "next_review": "2026-09-26",
+      "poll_sources": []
+    },
+    "UDI全球标识枢纽": {
+      "title": "UDI全球标识枢纽",
+      "file": "references/UDI全球标识枢纽.md",
+      "as_of": "2026-08-27",
+      "content_dates_through": "2026-05-28",
+      "verified": "human",
+      "copyright": "original",
+      "authorities": [
+        "CN",
+        "FDA",
+        "EU",
+        "GS1"
+      ],
+      "official_links": 16,
+      "sections": 1,
+      "standards_ref": [
+        "YY/T 1752",
+        "MDR 2017/745"
+      ],
+      "next_review": "2026-09-26",
+      "poll_sources": []
+    },
+    "上市后监管枢纽": {
+      "title": "上市后监管枢纽",
+      "file": "references/上市后监管枢纽.md",
+      "as_of": "2026-08-27",
+      "content_dates_through": null,
+      "verified": "human",
+      "copyright": "original",
+      "authorities": [
+        "FDA",
+        "EU",
+        "CN",
+        "PMDA"
+      ],
+      "official_links": 7,
+      "sections": 6,
+      "standards_ref": [
+        "MDR 2017/745"
+      ],
+      "next_review": "2026-09-03",
+      "poll_sources": [
+        "us-openfda"
+      ]
+    },
+    "临床评价枢纽": {
+      "title": "临床评价枢纽",
+      "file": "references/临床评价枢纽.md",
+      "as_of": "2026-08-27",
+      "content_dates_through": "2026-08-18",
+      "verified": "human",
+      "copyright": "original",
+      "authorities": [
+        "CN",
+        "EU",
+        "FDA"
+      ],
+      "official_links": 9,
+      "sections": 7,
+      "standards_ref": [],
+      "next_review": "2026-09-03",
+      "poll_sources": [
+        "cn-cmde",
+        "eu-mdcg"
+      ]
+    },
+    "原材料供应商合规枢纽": {
+      "title": "原材料供应商合规枢纽",
+      "file": "references/原材料供应商合规枢纽.md",
+      "as_of": "2026-08-27",
+      "content_dates_through": null,
+      "verified": "human",
+      "copyright": "original",
+      "authorities": [
+        "ASTM",
+        "CN",
+        "ISO",
+        "FDA"
+      ],
+      "official_links": 10,
+      "sections": 1,
+      "standards_ref": [
+        "ISO 11607",
+        "ISO 11135",
+        "ISO 5832",
+        "ISO 7153-1:2016",
+        "ISO 13485",
+        "ISO 9001",
+        "IEC 60601",
+        "GB/T 13810-2017",
+        "GB/T 13810",
+        "GB 4234",
+        "GB 4234.1",
+        "ASTM F138",
+        "ASTM F139",
+        "ASTM F2063"
+      ],
+      "next_review": "2026-09-26",
+      "poll_sources": []
+    },
+    "变更延续管理枢纽": {
+      "title": "变更·延续管理枢纽",
+      "file": "references/变更延续管理枢纽.md",
+      "as_of": "2026-08-27",
+      "content_dates_through": "2026-08-18",
+      "verified": "human",
+      "copyright": "original",
+      "authorities": [
+        "CN",
+        "FDA",
+        "EU"
+      ],
+      "official_links": 5,
+      "sections": 7,
+      "standards_ref": [
+        "ISO 13485"
+      ],
+      "next_review": "2026-09-26",
+      "poll_sources": []
+    },
+    "售后服务枢纽": {
+      "title": "售后服务枢纽",
+      "file": "references/售后服务枢纽.md",
+      "as_of": "2026-08-27",
+      "content_dates_through": "2026-08-18",
+      "verified": "human",
+      "copyright": "original",
+      "authorities": [
+        "CN",
+        "ISO"
+      ],
+      "official_links": 3,
+      "sections": 7,
+      "standards_ref": [
+        "ISO 13485"
+      ],
+      "next_review": "2026-09-26",
+      "poll_sources": []
+    },
+    "审评核查获证枢纽": {
+      "title": "审评核查获证枢纽",
+      "file": "references/审评核查获证枢纽.md",
+      "as_of": "2026-08-27",
+      "content_dates_through": "2026-08-19",
+      "verified": "human",
+      "copyright": "original",
+      "authorities": [
+        "CN",
+        "FDA",
+        "EU",
+        "PMDA"
+      ],
+      "official_links": 8,
+      "sections": 9,
+      "standards_ref": [
+        "ISO 13485"
+      ],
+      "next_review": "2026-09-03",
+      "poll_sources": [
+        "cn-nmpa-ggtg"
+      ]
+    },
+    "市场准入与销售枢纽": {
+      "title": "市场准入与销售枢纽",
+      "file": "references/市场准入与销售枢纽.md",
+      "as_of": "2026-08-27",
+      "content_dates_through": "2026-08-18",
+      "verified": "human",
+      "copyright": "original",
+      "authorities": [
+        "CN",
+        "FDA",
+        "EU"
+      ],
+      "official_links": 6,
+      "sections": 8,
+      "standards_ref": [],
+      "next_review": "2026-09-26",
+      "poll_sources": []
+    },
+    "技术文件STED撰写枢纽": {
+      "title": "技术文件STED撰写枢纽",
+      "file": "references/技术文件STED撰写枢纽.md",
+      "as_of": "2026-08-27",
+      "content_dates_through": null,
+      "verified": "human",
+      "copyright": "original",
+      "authorities": [
+        "IMDRF",
+        "FDA",
+        "EU",
+        "CN",
+        "PMDA"
+      ],
+      "official_links": 9,
+      "sections": 1,
+      "standards_ref": [
+        "ISO 13485",
+        "ISO 13485:2016",
+        "ISO 10993",
+        "ISO 11135",
+        "ISO 11607",
+        "IEC 62304",
+        "MDR 2017/745"
+      ],
+      "next_review": "2026-09-03",
+      "poll_sources": [
+        "us-fda-guidance"
+      ]
+    },
+    "枢纽总览_全生命周期7阶段纲领": {
+      "title": "枢纽总览 · 以全生命周期 7 阶段为纲领",
+      "file": "references/枢纽总览_全生命周期7阶段纲领.md",
+      "as_of": "2026-08-27",
+      "content_dates_through": "2026-08-19",
+      "verified": "human",
+      "copyright": "original",
+      "authorities": [],
+      "official_links": 0,
+      "sections": 10,
+      "standards_ref": [
+        "ISO 14971",
+        "ISO 13485",
+        "ISO 11607",
+        "ISO 10993-1:2025",
+        "ISO 15223-1:2021",
+        "ISO 20417",
+        "ISO 14644",
+        "IEC 62304",
+        "IEC 62366-1",
+        "GB/T 16886.1-2022"
+      ],
+      "next_review": "2026-09-26",
+      "poll_sources": []
+    },
+    "标签与IFU枢纽": {
+      "title": "标签与 IFU 枢纽",
+      "file": "references/标签与IFU枢纽.md",
+      "as_of": "2026-08-27",
+      "content_dates_through": null,
+      "verified": "human",
+      "copyright": "original",
+      "authorities": [
+        "CN",
+        "EU",
+        "ISO"
+      ],
+      "official_links": 5,
+      "sections": 6,
+      "standards_ref": [
+        "ISO 15223-1",
+        "ISO 20417",
+        "ISO 15223-1:2021",
+        "ISO 20417:2026",
+        "ISO 20417:2021",
+        "ISO 11135",
+        "MDR 2017/745"
+      ],
+      "next_review": "2026-09-26",
+      "poll_sources": []
+    },
+    "注册周期费用有效期对比枢纽": {
+      "title": "注册周期费用有效期对比枢纽",
+      "file": "references/注册周期费用有效期对比枢纽.md",
+      "as_of": "2026-08-27",
+      "content_dates_through": null,
+      "verified": "human",
+      "copyright": "original",
+      "authorities": [
+        "FDA",
+        "EU",
+        "CN",
+        "PMDA"
+      ],
+      "official_links": 8,
+      "sections": 1,
+      "standards_ref": [],
+      "next_review": "2026-09-26",
+      "poll_sources": []
+    },
+    "注册工程师资料枢纽": {
+      "title": "医疗器械注册工程师 · 资料枢纽（资料索引）",
+      "file": "references/注册工程师资料枢纽.md",
+      "as_of": "2026-08-27",
+      "content_dates_through": null,
+      "verified": "human",
+      "copyright": "original",
+      "authorities": [
+        "CN",
+        "FDA",
+        "EU",
+        "PMDA",
+        "ISO",
+        "IEC"
+      ],
+      "official_links": 62,
+      "sections": 35,
+      "standards_ref": [
+        "ISO 13485",
+        "ISO13485",
+        "ISO 13485:2016",
+        "ISO 14971:2019",
+        "ISO 10993",
+        "ISO 11135",
+        "ISO 11607-1:2019",
+        "ISO 15223",
+        "ISO 7153-1",
+        "ISO 17664",
+        "IEC 60601-1",
+        "IEC 62366-1",
+        "MDR 2017/745",
+        "IVDR 2017/746"
+      ],
+      "next_review": "2026-09-03",
+      "poll_sources": [
+        "cn-nmpa-fgwj",
+        "us-federal-register",
+        "global-imdrf"
+      ]
+    },
+    "注册检验与申报实操枢纽": {
+      "title": "注册检验与申报实操枢纽",
+      "file": "references/注册检验与申报实操枢纽.md",
+      "as_of": "2026-08-27",
+      "content_dates_through": "2026-08-19",
+      "verified": "human",
+      "copyright": "original",
+      "authorities": [
+        "CN",
+        "FDA",
+        "EU",
+        "PMDA"
+      ],
+      "official_links": 10,
+      "sections": 13,
+      "standards_ref": [
+        "ISO 13485"
+      ],
+      "next_review": "2026-09-03",
+      "poll_sources": [
+        "cn-nmpa-ggtg"
+      ]
+    },
+    "灭菌包装验证枢纽": {
+      "title": "灭菌·包装验证枢纽",
+      "file": "references/灭菌包装验证枢纽.md",
+      "as_of": "2026-08-27",
+      "content_dates_through": "2026-08-18",
+      "verified": "human",
+      "copyright": "original",
+      "authorities": [
+        "ISO",
+        "FDA",
+        "EU",
+        "CN"
+      ],
+      "official_links": 7,
+      "sections": 7,
+      "standards_ref": [
+        "ISO 11607",
+        "ISO 11135",
+        "ISO 10993-7",
+        "ISO 11137-1",
+        "ISO 11137",
+        "ISO 17665",
+        "ISO 20857",
+        "ISO 14937",
+        "ISO 11607-1",
+        "ISO 11607-2",
+        "GB 18279",
+        "GB 18280",
+        "GB 18278",
+        "GB/T 19633"
+      ],
+      "next_review": "2026-09-26",
+      "poll_sources": [
+        "std-gb"
+      ]
+    },
+    "生物相容性测试规划枢纽": {
+      "title": "生物相容性测试规划枢纽",
+      "file": "references/生物相容性测试规划枢纽.md",
+      "as_of": "2026-08-27",
+      "content_dates_through": null,
+      "verified": "human",
+      "copyright": "original",
+      "authorities": [
+        "ISO",
+        "CN",
+        "FDA"
+      ],
+      "official_links": 4,
+      "sections": 6,
+      "standards_ref": [
+        "ISO 10993-1",
+        "ISO 10993-18",
+        "ISO 10993-17",
+        "ISO 10993-1:2025",
+        "ISO 10993-2",
+        "ISO 10993-1:2018",
+        "ISO 10993",
+        "GB/T 16886.1",
+        "GB/T 16886.1-2022",
+        "GB/T 16886"
+      ],
+      "next_review": "2026-09-26",
+      "poll_sources": [
+        "std-iso",
+        "std-gb"
+      ]
+    },
+    "设计开发控制枢纽": {
+      "title": "设计开发控制枢纽",
+      "file": "references/设计开发控制枢纽.md",
+      "as_of": "2026-08-27",
+      "content_dates_through": "2026-08-18",
+      "verified": "human",
+      "copyright": "original",
+      "authorities": [
+        "ISO",
+        "FDA",
+        "EU"
+      ],
+      "official_links": 6,
+      "sections": 6,
+      "standards_ref": [
+        "ISO 13485",
+        "ISO 10993",
+        "ISO 11135",
+        "ISO 14971",
+        "ISO 13485:2016",
+        "IEC 62304",
+        "IEC 62366",
+        "YY/T 0287"
+      ],
+      "next_review": "2026-09-03",
+      "poll_sources": [
+        "us-fda-guidance",
+        "std-iso"
+      ]
+    },
+    "软件人因枢纽": {
+      "title": "软件·人因枢纽（IEC 62304 · IEC 62366 · 网络安全）",
+      "file": "references/软件人因枢纽.md",
+      "as_of": "2026-08-27",
+      "content_dates_through": "2026-08-18",
+      "verified": "human",
+      "copyright": "original",
+      "authorities": [
+        "IMDRF",
+        "EU",
+        "FDA",
+        "CN"
+      ],
+      "official_links": 6,
+      "sections": 10,
+      "standards_ref": [
+        "ISO 14971",
+        "IEC 62304",
+        "IEC 62366",
+        "IEC 62366-1"
+      ],
+      "next_review": "2026-09-03",
+      "poll_sources": [
+        "cn-cmde",
+        "std-iec-astm"
+      ]
+    },
+    "需求调研与立项枢纽": {
+      "title": "需求调研与立项枢纽",
+      "file": "references/需求调研与立项枢纽.md",
+      "as_of": "2026-08-27",
+      "content_dates_through": "2026-08-18",
+      "verified": "human",
+      "copyright": "original",
+      "authorities": [
+        "FDA",
+        "ISO"
+      ],
+      "official_links": 5,
+      "sections": 10,
+      "standards_ref": [
+        "ISO 13485",
+        "ISO 13485:2016"
+      ],
+      "next_review": "2026-09-26",
+      "poll_sources": []
+    },
+    "风险管理枢纽": {
+      "title": "风险管理枢纽（ISO 14971）",
+      "file": "references/风险管理枢纽.md",
+      "as_of": "2026-08-27",
+      "content_dates_through": "2026-08-18",
+      "verified": "human",
+      "copyright": "original",
+      "authorities": [
+        "ISO",
+        "CN",
+        "FDA",
+        "EU"
+      ],
+      "official_links": 9,
+      "sections": 6,
+      "standards_ref": [
+        "ISO 14971",
+        "ISO 14971:2019",
+        "ISO 14971:2007",
+        "GB/T 42062-2022",
+        "GB/T 42062",
+        "YY/T 0316"
+      ],
+      "next_review": "2026-09-26",
+      "poll_sources": [
+        "std-iso",
+        "std-iec-astm"
+      ]
+    },
+    "骨科手术器械_全球注册路径汇编": {
+      "title": "骨科手术器械 / 骨科手术器械 / 骨科手术器械 — 全球医疗器械注册路径汇编（含拉美与东南亚）",
+      "file": "references/骨科手术器械_全球注册路径汇编.md",
+      "as_of": "2026-08-27",
+      "content_dates_through": "2031-03-21",
+      "verified": "human",
+      "copyright": "original",
+      "authorities": [
+        "CN",
+        "FDA",
+        "EU",
+        "PMDA"
+      ],
+      "official_links": 17,
+      "sections": 15,
+      "standards_ref": [
+        "ISO 14971",
+        "ISO 13485",
+        "ISO 7153-1",
+        "ISO 11135",
+        "ISO 15223-1",
+        "ISO 17664",
+        "ISO 20417",
+        "ISO 7153-1:2016",
+        "ISO 10993",
+        "ISO 11607",
+        "IEC 62366",
+        "IEC 60601",
+        "GB/T 24627",
+        "GB 18279",
+        "YY/T 0294.1",
+        "YY/T 0686",
+        "YY/T 0149",
+        "YY/T 0466",
+        "YY/T 0316",
+        "YY/T 0287",
+        "ASTM F899",
+        "ASTM F2063",
+        "ASTM F838",
+        "EN 1041",
+        "MDR (EU) 2017/745"
+      ],
+      "next_review": "2026-09-26",
+      "poll_sources": [
+        "jp-pmda"
+      ]
+    }
+  },
+  "standards_index": {
+    "ISO 10993": {
+      "authority": "ISO",
+      "copyright": "restricted",
+      "official_query": "https://www.iso.org/search.html?q=",
+      "note": "全文受版权保护，本库仅存编号/标题/官方查询入口，禁止收录全文"
+    },
+    "ISO 13485": {
+      "authority": "ISO",
+      "copyright": "restricted",
+      "official_query": "https://www.iso.org/search.html?q=",
+      "note": "全文受版权保护，本库仅存编号/标题/官方查询入口，禁止收录全文"
+    },
+    "ISO 14644": {
+      "authority": "ISO",
+      "copyright": "restricted",
+      "official_query": "https://www.iso.org/search.html?q=",
+      "note": "全文受版权保护，本库仅存编号/标题/官方查询入口，禁止收录全文"
+    },
+    "ISO 13485:2016": {
+      "authority": "ISO",
+      "copyright": "restricted",
+      "official_query": "https://www.iso.org/search.html?q=",
+      "note": "全文受版权保护，本库仅存编号/标题/官方查询入口，禁止收录全文"
+    },
+    "ISO 14971": {
+      "authority": "ISO",
+      "copyright": "restricted",
+      "official_query": "https://www.iso.org/search.html?q=",
+      "note": "全文受版权保护，本库仅存编号/标题/官方查询入口，禁止收录全文"
+    },
+    "ISO 14971:2019": {
+      "authority": "ISO",
+      "copyright": "restricted",
+      "official_query": "https://www.iso.org/search.html?q=",
+      "note": "全文受版权保护，本库仅存编号/标题/官方查询入口，禁止收录全文"
+    },
+    "ISO 14644-1": {
+      "authority": "ISO",
+      "copyright": "restricted",
+      "official_query": "https://www.iso.org/search.html?q=",
+      "note": "全文受版权保护，本库仅存编号/标题/官方查询入口，禁止收录全文"
+    },
+    "ISO 14644-2": {
+      "authority": "ISO",
+      "copyright": "restricted",
+      "official_query": "https://www.iso.org/search.html?q=",
+      "note": "全文受版权保护，本库仅存编号/标题/官方查询入口，禁止收录全文"
+    },
+    "GB/T 42062": {
+      "authority": "SAMR",
+      "copyright": "restricted",
+      "official_query": "https://std.samr.gov.cn/",
+      "note": "全文受版权保护，本库仅存编号/标题/官方查询入口，禁止收录全文"
+    },
+    "GB/T 42062-2022": {
+      "authority": "SAMR",
+      "copyright": "restricted",
+      "official_query": "https://std.samr.gov.cn/",
+      "note": "全文受版权保护，本库仅存编号/标题/官方查询入口，禁止收录全文"
+    },
+    "GB 50073": {
+      "authority": "SAMR",
+      "copyright": "restricted",
+      "official_query": "https://std.samr.gov.cn/",
+      "note": "全文受版权保护，本库仅存编号/标题/官方查询入口，禁止收录全文"
+    },
+    "YY 0033": {
+      "authority": "SAMR",
+      "copyright": "restricted",
+      "official_query": "https://std.samr.gov.cn/",
+      "note": "全文受版权保护，本库仅存编号/标题/官方查询入口，禁止收录全文"
+    },
+    "ASTM F3127": {
+      "authority": "ASTM",
+      "copyright": "restricted",
+      "official_query": "https://www.astm.org/search.html?query=",
+      "note": "全文受版权保护，本库仅存编号/标题/官方查询入口，禁止收录全文"
+    },
+    "MDR 2017/745": {
+      "authority": "EU",
+      "copyright": "public",
+      "official_query": "https://eur-lex.europa.eu/search.html?q=",
+      "note": "官方公开，可缓存来源链接"
+    },
+    "YY/T 1752": {
+      "authority": "SAMR",
+      "copyright": "restricted",
+      "official_query": "https://std.samr.gov.cn/",
+      "note": "全文受版权保护，本库仅存编号/标题/官方查询入口，禁止收录全文"
+    },
+    "ISO 11607": {
+      "authority": "ISO",
+      "copyright": "restricted",
+      "official_query": "https://www.iso.org/search.html?q=",
+      "note": "全文受版权保护，本库仅存编号/标题/官方查询入口，禁止收录全文"
+    },
+    "ISO 11135": {
+      "authority": "ISO",
+      "copyright": "restricted",
+      "official_query": "https://www.iso.org/search.html?q=",
+      "note": "全文受版权保护，本库仅存编号/标题/官方查询入口，禁止收录全文"
+    },
+    "ISO 5832": {
+      "authority": "ISO",
+      "copyright": "restricted",
+      "official_query": "https://www.iso.org/search.html?q=",
+      "note": "全文受版权保护，本库仅存编号/标题/官方查询入口，禁止收录全文"
+    },
+    "ISO 7153-1:2016": {
+      "authority": "ISO",
+      "copyright": "restricted",
+      "official_query": "https://www.iso.org/search.html?q=",
+      "note": "全文受版权保护，本库仅存编号/标题/官方查询入口，禁止收录全文"
+    },
+    "ISO 9001": {
+      "authority": "ISO",
+      "copyright": "restricted",
+      "official_query": "https://www.iso.org/search.html?q=",
+      "note": "全文受版权保护，本库仅存编号/标题/官方查询入口，禁止收录全文"
+    },
+    "IEC 60601": {
+      "authority": "IEC",
+      "copyright": "restricted",
+      "official_query": "https://webstore.iec.ch/searchform&q=",
+      "note": "全文受版权保护，本库仅存编号/标题/官方查询入口，禁止收录全文"
+    },
+    "GB/T 13810-2017": {
+      "authority": "SAMR",
+      "copyright": "restricted",
+      "official_query": "https://std.samr.gov.cn/",
+      "note": "全文受版权保护，本库仅存编号/标题/官方查询入口，禁止收录全文"
+    },
+    "GB/T 13810": {
+      "authority": "SAMR",
+      "copyright": "restricted",
+      "official_query": "https://std.samr.gov.cn/",
+      "note": "全文受版权保护，本库仅存编号/标题/官方查询入口，禁止收录全文"
+    },
+    "GB 4234": {
+      "authority": "SAMR",
+      "copyright": "restricted",
+      "official_query": "https://std.samr.gov.cn/",
+      "note": "全文受版权保护，本库仅存编号/标题/官方查询入口，禁止收录全文"
+    },
+    "GB 4234.1": {
+      "authority": "SAMR",
+      "copyright": "restricted",
+      "official_query": "https://std.samr.gov.cn/",
+      "note": "全文受版权保护，本库仅存编号/标题/官方查询入口，禁止收录全文"
+    },
+    "ASTM F138": {
+      "authority": "ASTM",
+      "copyright": "restricted",
+      "official_query": "https://www.astm.org/search.html?query=",
+      "note": "全文受版权保护，本库仅存编号/标题/官方查询入口，禁止收录全文"
+    },
+    "ASTM F139": {
+      "authority": "ASTM",
+      "copyright": "restricted",
+      "official_query": "https://www.astm.org/search.html?query=",
+      "note": "全文受版权保护，本库仅存编号/标题/官方查询入口，禁止收录全文"
+    },
+    "ASTM F2063": {
+      "authority": "ASTM",
+      "copyright": "restricted",
+      "official_query": "https://www.astm.org/search.html?query=",
+      "note": "全文受版权保护，本库仅存编号/标题/官方查询入口，禁止收录全文"
+    },
+    "IEC 62304": {
+      "authority": "IEC",
+      "copyright": "restricted",
+      "official_query": "https://webstore.iec.ch/searchform&q=",
+      "note": "全文受版权保护，本库仅存编号/标题/官方查询入口，禁止收录全文"
+    },
+    "ISO 10993-1:2025": {
+      "authority": "ISO",
+      "copyright": "restricted",
+      "official_query": "https://www.iso.org/search.html?q=",
+      "note": "全文受版权保护，本库仅存编号/标题/官方查询入口，禁止收录全文"
+    },
+    "ISO 15223-1:2021": {
+      "authority": "ISO",
+      "copyright": "restricted",
+      "official_query": "https://www.iso.org/search.html?q=",
+      "note": "全文受版权保护，本库仅存编号/标题/官方查询入口，禁止收录全文"
+    },
+    "ISO 20417": {
+      "authority": "ISO",
+      "copyright": "restricted",
+      "official_query": "https://www.iso.org/search.html?q=",
+      "note": "全文受版权保护，本库仅存编号/标题/官方查询入口，禁止收录全文"
+    },
+    "IEC 62366-1": {
+      "authority": "IEC",
+      "copyright": "restricted",
+      "official_query": "https://webstore.iec.ch/searchform&q=",
+      "note": "全文受版权保护，本库仅存编号/标题/官方查询入口，禁止收录全文"
+    },
+    "GB/T 16886.1-2022": {
+      "authority": "SAMR",
+      "copyright": "restricted",
+      "official_query": "https://std.samr.gov.cn/",
+      "note": "全文受版权保护，本库仅存编号/标题/官方查询入口，禁止收录全文"
+    },
+    "ISO 15223-1": {
+      "authority": "ISO",
+      "copyright": "restricted",
+      "official_query": "https://www.iso.org/search.html?q=",
+      "note": "全文受版权保护，本库仅存编号/标题/官方查询入口，禁止收录全文"
+    },
+    "ISO 20417:2026": {
+      "authority": "ISO",
+      "copyright": "restricted",
+      "official_query": "https://www.iso.org/search.html?q=",
+      "note": "全文受版权保护，本库仅存编号/标题/官方查询入口，禁止收录全文"
+    },
+    "ISO 20417:2021": {
+      "authority": "ISO",
+      "copyright": "restricted",
+      "official_query": "https://www.iso.org/search.html?q=",
+      "note": "全文受版权保护，本库仅存编号/标题/官方查询入口，禁止收录全文"
+    },
+    "ISO13485": {
+      "authority": "ISO",
+      "copyright": "restricted",
+      "official_query": "https://www.iso.org/search.html?q=",
+      "note": "全文受版权保护，本库仅存编号/标题/官方查询入口，禁止收录全文"
+    },
+    "ISO 11607-1:2019": {
+      "authority": "ISO",
+      "copyright": "restricted",
+      "official_query": "https://www.iso.org/search.html?q=",
+      "note": "全文受版权保护，本库仅存编号/标题/官方查询入口，禁止收录全文"
+    },
+    "ISO 15223": {
+      "authority": "ISO",
+      "copyright": "restricted",
+      "official_query": "https://www.iso.org/search.html?q=",
+      "note": "全文受版权保护，本库仅存编号/标题/官方查询入口，禁止收录全文"
+    },
+    "ISO 7153-1": {
+      "authority": "ISO",
+      "copyright": "restricted",
+      "official_query": "https://www.iso.org/search.html?q=",
+      "note": "全文受版权保护，本库仅存编号/标题/官方查询入口，禁止收录全文"
+    },
+    "ISO 17664": {
+      "authority": "ISO",
+      "copyright": "restricted",
+      "official_query": "https://www.iso.org/search.html?q=",
+      "note": "全文受版权保护，本库仅存编号/标题/官方查询入口，禁止收录全文"
+    },
+    "IEC 60601-1": {
+      "authority": "IEC",
+      "copyright": "restricted",
+      "official_query": "https://webstore.iec.ch/searchform&q=",
+      "note": "全文受版权保护，本库仅存编号/标题/官方查询入口，禁止收录全文"
+    },
+    "IVDR 2017/746": {
+      "authority": "EU",
+      "copyright": "public",
+      "official_query": "https://eur-lex.europa.eu/search.html?q=",
+      "note": "官方公开，可缓存来源链接"
+    },
+    "ISO 10993-7": {
+      "authority": "ISO",
+      "copyright": "restricted",
+      "official_query": "https://www.iso.org/search.html?q=",
+      "note": "全文受版权保护，本库仅存编号/标题/官方查询入口，禁止收录全文"
+    },
+    "ISO 11137-1": {
+      "authority": "ISO",
+      "copyright": "restricted",
+      "official_query": "https://www.iso.org/search.html?q=",
+      "note": "全文受版权保护，本库仅存编号/标题/官方查询入口，禁止收录全文"
+    },
+    "ISO 11137": {
+      "authority": "ISO",
+      "copyright": "restricted",
+      "official_query": "https://www.iso.org/search.html?q=",
+      "note": "全文受版权保护，本库仅存编号/标题/官方查询入口，禁止收录全文"
+    },
+    "ISO 17665": {
+      "authority": "ISO",
+      "copyright": "restricted",
+      "official_query": "https://www.iso.org/search.html?q=",
+      "note": "全文受版权保护，本库仅存编号/标题/官方查询入口，禁止收录全文"
+    },
+    "ISO 20857": {
+      "authority": "ISO",
+      "copyright": "restricted",
+      "official_query": "https://www.iso.org/search.html?q=",
+      "note": "全文受版权保护，本库仅存编号/标题/官方查询入口，禁止收录全文"
+    },
+    "ISO 14937": {
+      "authority": "ISO",
+      "copyright": "restricted",
+      "official_query": "https://www.iso.org/search.html?q=",
+      "note": "全文受版权保护，本库仅存编号/标题/官方查询入口，禁止收录全文"
+    },
+    "ISO 11607-1": {
+      "authority": "ISO",
+      "copyright": "restricted",
+      "official_query": "https://www.iso.org/search.html?q=",
+      "note": "全文受版权保护，本库仅存编号/标题/官方查询入口，禁止收录全文"
+    },
+    "ISO 11607-2": {
+      "authority": "ISO",
+      "copyright": "restricted",
+      "official_query": "https://www.iso.org/search.html?q=",
+      "note": "全文受版权保护，本库仅存编号/标题/官方查询入口，禁止收录全文"
+    },
+    "GB 18279": {
+      "authority": "SAMR",
+      "copyright": "restricted",
+      "official_query": "https://std.samr.gov.cn/",
+      "note": "全文受版权保护，本库仅存编号/标题/官方查询入口，禁止收录全文"
+    },
+    "GB 18280": {
+      "authority": "SAMR",
+      "copyright": "restricted",
+      "official_query": "https://std.samr.gov.cn/",
+      "note": "全文受版权保护，本库仅存编号/标题/官方查询入口，禁止收录全文"
+    },
+    "GB 18278": {
+      "authority": "SAMR",
+      "copyright": "restricted",
+      "official_query": "https://std.samr.gov.cn/",
+      "note": "全文受版权保护，本库仅存编号/标题/官方查询入口，禁止收录全文"
+    },
+    "GB/T 19633": {
+      "authority": "SAMR",
+      "copyright": "restricted",
+      "official_query": "https://std.samr.gov.cn/",
+      "note": "全文受版权保护，本库仅存编号/标题/官方查询入口，禁止收录全文"
+    },
+    "ISO 10993-1": {
+      "authority": "ISO",
+      "copyright": "restricted",
+      "official_query": "https://www.iso.org/search.html?q=",
+      "note": "全文受版权保护，本库仅存编号/标题/官方查询入口，禁止收录全文"
+    },
+    "ISO 10993-18": {
+      "authority": "ISO",
+      "copyright": "restricted",
+      "official_query": "https://www.iso.org/search.html?q=",
+      "note": "全文受版权保护，本库仅存编号/标题/官方查询入口，禁止收录全文"
+    },
+    "ISO 10993-17": {
+      "authority": "ISO",
+      "copyright": "restricted",
+      "official_query": "https://www.iso.org/search.html?q=",
+      "note": "全文受版权保护，本库仅存编号/标题/官方查询入口，禁止收录全文"
+    },
+    "ISO 10993-2": {
+      "authority": "ISO",
+      "copyright": "restricted",
+      "official_query": "https://www.iso.org/search.html?q=",
+      "note": "全文受版权保护，本库仅存编号/标题/官方查询入口，禁止收录全文"
+    },
+    "ISO 10993-1:2018": {
+      "authority": "ISO",
+      "copyright": "restricted",
+      "official_query": "https://www.iso.org/search.html?q=",
+      "note": "全文受版权保护，本库仅存编号/标题/官方查询入口，禁止收录全文"
+    },
+    "GB/T 16886.1": {
+      "authority": "SAMR",
+      "copyright": "restricted",
+      "official_query": "https://std.samr.gov.cn/",
+      "note": "全文受版权保护，本库仅存编号/标题/官方查询入口，禁止收录全文"
+    },
+    "GB/T 16886": {
+      "authority": "SAMR",
+      "copyright": "restricted",
+      "official_query": "https://std.samr.gov.cn/",
+      "note": "全文受版权保护，本库仅存编号/标题/官方查询入口，禁止收录全文"
+    },
+    "IEC 62366": {
+      "authority": "IEC",
+      "copyright": "restricted",
+      "official_query": "https://webstore.iec.ch/searchform&q=",
+      "note": "全文受版权保护，本库仅存编号/标题/官方查询入口，禁止收录全文"
+    },
+    "YY/T 0287": {
+      "authority": "SAMR",
+      "copyright": "restricted",
+      "official_query": "https://std.samr.gov.cn/",
+      "note": "全文受版权保护，本库仅存编号/标题/官方查询入口，禁止收录全文"
+    },
+    "ISO 14971:2007": {
+      "authority": "ISO",
+      "copyright": "restricted",
+      "official_query": "https://www.iso.org/search.html?q=",
+      "note": "全文受版权保护，本库仅存编号/标题/官方查询入口，禁止收录全文"
+    },
+    "YY/T 0316": {
+      "authority": "SAMR",
+      "copyright": "restricted",
+      "official_query": "https://std.samr.gov.cn/",
+      "note": "全文受版权保护，本库仅存编号/标题/官方查询入口，禁止收录全文"
+    },
+    "GB/T 24627": {
+      "authority": "SAMR",
+      "copyright": "restricted",
+      "official_query": "https://std.samr.gov.cn/",
+      "note": "全文受版权保护，本库仅存编号/标题/官方查询入口，禁止收录全文"
+    },
+    "YY/T 0294.1": {
+      "authority": "SAMR",
+      "copyright": "restricted",
+      "official_query": "https://std.samr.gov.cn/",
+      "note": "全文受版权保护，本库仅存编号/标题/官方查询入口，禁止收录全文"
+    },
+    "YY/T 0686": {
+      "authority": "SAMR",
+      "copyright": "restricted",
+      "official_query": "https://std.samr.gov.cn/",
+      "note": "全文受版权保护，本库仅存编号/标题/官方查询入口，禁止收录全文"
+    },
+    "YY/T 0149": {
+      "authority": "SAMR",
+      "copyright": "restricted",
+      "official_query": "https://std.samr.gov.cn/",
+      "note": "全文受版权保护，本库仅存编号/标题/官方查询入口，禁止收录全文"
+    },
+    "YY/T 0466": {
+      "authority": "SAMR",
+      "copyright": "restricted",
+      "official_query": "https://std.samr.gov.cn/",
+      "note": "全文受版权保护，本库仅存编号/标题/官方查询入口，禁止收录全文"
+    },
+    "ASTM F899": {
+      "authority": "ASTM",
+      "copyright": "restricted",
+      "official_query": "https://www.astm.org/search.html?query=",
+      "note": "全文受版权保护，本库仅存编号/标题/官方查询入口，禁止收录全文"
+    },
+    "ASTM F838": {
+      "authority": "ASTM",
+      "copyright": "restricted",
+      "official_query": "https://www.astm.org/search.html?query=",
+      "note": "全文受版权保护，本库仅存编号/标题/官方查询入口，禁止收录全文"
+    },
+    "EN 1041": {
+      "authority": "OTHER",
+      "copyright": "public",
+      "official_query": "",
+      "note": "官方公开，可缓存来源链接"
+    },
+    "MDR (EU) 2017/745": {
+      "authority": "EU",
+      "copyright": "public",
+      "official_query": "https://eur-lex.europa.eu/search.html?q=",
+      "note": "官方公开，可缓存来源链接"
+    }
+  },
+  "deltas": []
+}

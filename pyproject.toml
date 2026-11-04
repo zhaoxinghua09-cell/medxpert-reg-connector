@@ -4,11 +4,11 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "medxpert-reg-connector"
-version = "1.1.0"
-description = "Read-only local MCP server: global medical-device regulatory knowledge hubs (NMPA/FDA/MDR/PMDA), 4 tools, zero egress."
+version = "1.2.0"
+description = "Read-only local MCP server: global medical-device regulatory knowledge hubs (NMPA/FDA/MDR/PMDA), 7 tools, zero egress."
 readme = "README.md"
 requires-python = ">=3.9"
-license = { text = "All Rights Reserved (custom license, see LICENSE)" }
+license = { text = "Apache-2.0" }
 authors = [{ name = "Steven Zhao" }]
 keywords = ["medical-devices", "nmpa", "fda", "eu-mdr", "pmda", "regulatory", "mcp", "orthopedics"]
 classifiers = [
