@@ -23,8 +23,33 @@ jobs:
       - name: Validate server.json
         run: ./mcp-publisher validate server.json
 
+      # Re-running for an already registered version returns HTTP 400 "duplicate version",
+      # which would paint a red X on a tag push that changes nothing. Check first.
+      - name: Check whether this version is already registered
+        id: check
+        run: |
+          NAME=$(python3 -c "import json;print(json.load(open('server.json'))['name'])")
+          VER=$(python3 -c "import json;print(json.load(open('server.json'))['version'])")
+          echo "checking $NAME@$VER"
+          BODY=$(curl -fsS "https://registry.modelcontextprotocol.io/v0/servers?search=$NAME")
+          if printf '%s' "$BODY" | NAME="$NAME" VER="$VER" python3 -c '
+          import json, os, sys
+          name, ver = os.environ["NAME"], os.environ["VER"]
+          data = json.load(sys.stdin)
+          hit = any(s.get("server", {}).get("name") == name and s["server"].get("version") == ver
+                    for s in data.get("servers", []))
+          sys.exit(0 if hit else 1)
+          '; then
+            echo "already_exists=true" >> "$GITHUB_OUTPUT"
+            echo "::notice::already registered, publish skipped"
+          else
+            echo "already_exists=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Authenticate to MCP Registry
+        if: steps.check.outputs.already_exists == 'false'
         run: ./mcp-publisher login github-oidc
 
       - name: Publish server to MCP Registry
+        if: steps.check.outputs.already_exists == 'false'
         run: ./mcp-publisher publish
