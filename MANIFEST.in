@@ -1,2 +1,5 @@
-include LICENSE README.md server.json registry.json sources.json
-recursive-include references *.md
+include LICENSE CONTENT-LICENSE README.md README.en.md server.json ATTESTATION.md SKILL.md
+include medxpert_reg_connector/data/registry.json
+include medxpert_reg_connector/data/sources.json
+recursive-include medxpert_reg_connector/data/references *.md
+recursive-include tests *.py

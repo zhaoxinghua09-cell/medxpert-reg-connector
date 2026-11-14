@@ -10,7 +10,7 @@
   "hubs": {
     "CN_医疗器械委托生产MAH实务": {
       "title": "中国医疗器械委托生产（注册人制度）实务",
-      "file": "references/CN_医疗器械委托生产MAH实务.md",
+      "file": "medxpert_reg_connector/data/references/CN_医疗器械委托生产MAH实务.md",
       "as_of": "2026-08-27",
       "content_dates_through": null,
       "verified": "human",
@@ -28,7 +28,7 @@
     },
     "EU_EUDAMED数据库实务": {
       "title": "EUDAMED 欧盟医疗器械数据库实务",
-      "file": "references/EU_EUDAMED数据库实务.md",
+      "file": "medxpert_reg_connector/data/references/EU_EUDAMED数据库实务.md",
       "as_of": "2026-08-27",
       "content_dates_through": "2026-05-28",
       "verified": "human",
@@ -47,7 +47,7 @@
     },
     "EU_MDR上市后监管PMS实务": {
       "title": "EU MDR 上市后监管（PMS）实务",
-      "file": "references/EU_MDR上市后监管PMS实务.md",
+      "file": "medxpert_reg_connector/data/references/EU_MDR上市后监管PMS实务.md",
       "as_of": "2026-08-27",
       "content_dates_through": null,
       "verified": "human",
@@ -66,7 +66,7 @@
     },
     "FDA_UDI实施实务": {
       "title": "FDA UDI 实施实务",
-      "file": "references/FDA_UDI实施实务.md",
+      "file": "medxpert_reg_connector/data/references/FDA_UDI实施实务.md",
       "as_of": "2026-08-27",
       "content_dates_through": "2022-12-08",
       "verified": "human",
@@ -84,7 +84,7 @@
     },
     "FDA创伤敷料供应链穿透检查枢纽": {
       "title": "FDA 质量体系核查下的敷料供应链溯源（注册老炮知识库）",
-      "file": "references/FDA创伤敷料供应链穿透检查枢纽.md",
+      "file": "medxpert_reg_connector/data/references/FDA创伤敷料供应链穿透检查枢纽.md",
       "as_of": "2026-08-27",
       "content_dates_through": "2026-02-02",
       "verified": "human",
@@ -102,7 +102,7 @@
     },
     "GMP质量体系与验证枢纽": {
       "title": "GMP / 质量体系与验证枢纽",
-      "file": "references/GMP质量体系与验证枢纽.md",
+      "file": "medxpert_reg_connector/data/references/GMP质量体系与验证枢纽.md",
       "as_of": "2026-08-27",
       "content_dates_through": "2015-10-01",
       "verified": "human",
@@ -134,7 +134,7 @@
     },
     "UDI全球标识枢纽": {
       "title": "UDI全球标识枢纽",
-      "file": "references/UDI全球标识枢纽.md",
+      "file": "medxpert_reg_connector/data/references/UDI全球标识枢纽.md",
       "as_of": "2026-08-27",
       "content_dates_through": "2026-05-28",
       "verified": "human",
@@ -156,7 +156,7 @@
     },
     "上市后监管枢纽": {
       "title": "上市后监管枢纽",
-      "file": "references/上市后监管枢纽.md",
+      "file": "medxpert_reg_connector/data/references/上市后监管枢纽.md",
       "as_of": "2026-08-27",
       "content_dates_through": null,
       "verified": "human",
@@ -179,7 +179,7 @@
     },
     "临床评价枢纽": {
       "title": "临床评价枢纽",
-      "file": "references/临床评价枢纽.md",
+      "file": "medxpert_reg_connector/data/references/临床评价枢纽.md",
       "as_of": "2026-08-27",
       "content_dates_through": "2026-08-18",
       "verified": "human",
@@ -200,7 +200,7 @@
     },
     "原材料供应商合规枢纽": {
       "title": "原材料供应商合规枢纽",
-      "file": "references/原材料供应商合规枢纽.md",
+      "file": "medxpert_reg_connector/data/references/原材料供应商合规枢纽.md",
       "as_of": "2026-08-27",
       "content_dates_through": null,
       "verified": "human",
@@ -234,7 +234,7 @@
     },
     "变更延续管理枢纽": {
       "title": "变更·延续管理枢纽",
-      "file": "references/变更延续管理枢纽.md",
+      "file": "medxpert_reg_connector/data/references/变更延续管理枢纽.md",
       "as_of": "2026-08-27",
       "content_dates_through": "2026-08-18",
       "verified": "human",
@@ -254,7 +254,7 @@
     },
     "售后服务枢纽": {
       "title": "售后服务枢纽",
-      "file": "references/售后服务枢纽.md",
+      "file": "medxpert_reg_connector/data/references/售后服务枢纽.md",
       "as_of": "2026-08-27",
       "content_dates_through": "2026-08-18",
       "verified": "human",
@@ -273,7 +273,7 @@
     },
     "审评核查获证枢纽": {
       "title": "审评核查获证枢纽",
-      "file": "references/审评核查获证枢纽.md",
+      "file": "medxpert_reg_connector/data/references/审评核查获证枢纽.md",
       "as_of": "2026-08-27",
       "content_dates_through": "2026-08-19",
       "verified": "human",
@@ -296,7 +296,7 @@
     },
     "市场准入与销售枢纽": {
       "title": "市场准入与销售枢纽",
-      "file": "references/市场准入与销售枢纽.md",
+      "file": "medxpert_reg_connector/data/references/市场准入与销售枢纽.md",
       "as_of": "2026-08-27",
       "content_dates_through": "2026-08-18",
       "verified": "human",
@@ -314,7 +314,7 @@
     },
     "技术文件STED撰写枢纽": {
       "title": "技术文件STED撰写枢纽",
-      "file": "references/技术文件STED撰写枢纽.md",
+      "file": "medxpert_reg_connector/data/references/技术文件STED撰写枢纽.md",
       "as_of": "2026-08-27",
       "content_dates_through": null,
       "verified": "human",
@@ -344,7 +344,7 @@
     },
     "枢纽总览_全生命周期7阶段纲领": {
       "title": "枢纽总览 · 以全生命周期 7 阶段为纲领",
-      "file": "references/枢纽总览_全生命周期7阶段纲领.md",
+      "file": "medxpert_reg_connector/data/references/枢纽总览_全生命周期7阶段纲领.md",
       "as_of": "2026-08-27",
       "content_dates_through": "2026-08-19",
       "verified": "human",
@@ -369,7 +369,7 @@
     },
     "标签与IFU枢纽": {
       "title": "标签与 IFU 枢纽",
-      "file": "references/标签与IFU枢纽.md",
+      "file": "medxpert_reg_connector/data/references/标签与IFU枢纽.md",
       "as_of": "2026-08-27",
       "content_dates_through": null,
       "verified": "human",
@@ -395,7 +395,7 @@
     },
     "注册周期费用有效期对比枢纽": {
       "title": "注册周期费用有效期对比枢纽",
-      "file": "references/注册周期费用有效期对比枢纽.md",
+      "file": "medxpert_reg_connector/data/references/注册周期费用有效期对比枢纽.md",
       "as_of": "2026-08-27",
       "content_dates_through": null,
       "verified": "human",
@@ -414,7 +414,7 @@
     },
     "注册工程师资料枢纽": {
       "title": "医疗器械注册工程师 · 资料枢纽（资料索引）",
-      "file": "references/注册工程师资料枢纽.md",
+      "file": "medxpert_reg_connector/data/references/注册工程师资料枢纽.md",
       "as_of": "2026-08-27",
       "content_dates_through": null,
       "verified": "human",
@@ -454,7 +454,7 @@
     },
     "注册检验与申报实操枢纽": {
       "title": "注册检验与申报实操枢纽",
-      "file": "references/注册检验与申报实操枢纽.md",
+      "file": "medxpert_reg_connector/data/references/注册检验与申报实操枢纽.md",
       "as_of": "2026-08-27",
       "content_dates_through": "2026-08-19",
       "verified": "human",
@@ -477,7 +477,7 @@
     },
     "灭菌包装验证枢纽": {
       "title": "灭菌·包装验证枢纽",
-      "file": "references/灭菌包装验证枢纽.md",
+      "file": "medxpert_reg_connector/data/references/灭菌包装验证枢纽.md",
       "as_of": "2026-08-27",
       "content_dates_through": "2026-08-18",
       "verified": "human",
@@ -513,7 +513,7 @@
     },
     "生物相容性测试规划枢纽": {
       "title": "生物相容性测试规划枢纽",
-      "file": "references/生物相容性测试规划枢纽.md",
+      "file": "medxpert_reg_connector/data/references/生物相容性测试规划枢纽.md",
       "as_of": "2026-08-27",
       "content_dates_through": null,
       "verified": "human",
@@ -545,7 +545,7 @@
     },
     "设计开发控制枢纽": {
       "title": "设计开发控制枢纽",
-      "file": "references/设计开发控制枢纽.md",
+      "file": "medxpert_reg_connector/data/references/设计开发控制枢纽.md",
       "as_of": "2026-08-27",
       "content_dates_through": "2026-08-18",
       "verified": "human",
@@ -575,7 +575,7 @@
     },
     "软件人因枢纽": {
       "title": "软件·人因枢纽（IEC 62304 · IEC 62366 · 网络安全）",
-      "file": "references/软件人因枢纽.md",
+      "file": "medxpert_reg_connector/data/references/软件人因枢纽.md",
       "as_of": "2026-08-27",
       "content_dates_through": "2026-08-18",
       "verified": "human",
@@ -602,7 +602,7 @@
     },
     "需求调研与立项枢纽": {
       "title": "需求调研与立项枢纽",
-      "file": "references/需求调研与立项枢纽.md",
+      "file": "medxpert_reg_connector/data/references/需求调研与立项枢纽.md",
       "as_of": "2026-08-27",
       "content_dates_through": "2026-08-18",
       "verified": "human",
@@ -622,7 +622,7 @@
     },
     "风险管理枢纽": {
       "title": "风险管理枢纽（ISO 14971）",
-      "file": "references/风险管理枢纽.md",
+      "file": "medxpert_reg_connector/data/references/风险管理枢纽.md",
       "as_of": "2026-08-27",
       "content_dates_through": "2026-08-18",
       "verified": "human",
@@ -651,7 +651,7 @@
     },
     "骨科手术器械_全球注册路径汇编": {
       "title": "骨科手术器械 / 骨科手术器械 / 骨科手术器械 — 全球医疗器械注册路径汇编（含拉美与东南亚）",
-      "file": "references/骨科手术器械_全球注册路径汇编.md",
+      "file": "medxpert_reg_connector/data/references/骨科手术器械_全球注册路径汇编.md",
       "as_of": "2026-08-27",
       "content_dates_through": "2031-03-21",
       "verified": "human",
