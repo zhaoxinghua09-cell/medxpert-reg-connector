@@ -23,7 +23,7 @@
 - 发布时间（本地）：2026-08-30T02:28:26.829635
 
 ## 5. 作品指纹（内容哈希）
-- 包指纹 SHA-256：b2866791418e14bc8d105cefc8feed1d5d1a00b0eae479ec48467850319599e4
+- 包指纹 SHA-256：2eb30f25294faa27ef5a0b6540b61cf616d3acac0555c9c5020189e9c5418fc9
 - 载荷指纹 SHA-256（wheel 内文件，共 34 个）：e3e718674d20547c2a445f0d8c6218127ec238c0710cb73f632230010b864c10
 - **合成规则（显式可复现）**：逐文件哈希 = sha256(文件原始字节)；包指纹 =
   sha256( 按相对路径升序拼接的 `"相对路径:逐文件哈希"` 行，以换行 `\n` 连接 )。
@@ -89,5 +89,5 @@
 | medxpert_reg_connector/server.py | 84681f207a9b50051242e8a76fc7adb22235ba9f735148de1ba494fecf851fc1 |
 | pyproject.toml | 7e893510cc656f3f6c8392d9057f7c83035f43638b6ca51f739821f1df2adc34 |
 | requirements.txt | f4dbe1751992271c5fe624f3e7cad8c9e6b40ed4ec2a0bc640731165a6bb34de |
-| server.json | d0f20cea37f62ea04ab86b068546a223401e8d8d08e83c914bbc0ba3a711ab4c |
+| server.json | 4f8e4a78c5a15ef689804c5165f51ec9f8b7f03a32510aab2515d916f9b7eacd |
 | smithery.yaml | 5dd5b161c1690f82ee96c38a6fd02d781ef24099d0b5d427e4fa1f1617176c78 |
