@@ -23,6 +23,13 @@ jobs:
           python -m pip install --upgrade pip
           pip install -e .
       - name: Show bundled knowledge base
-        run: python -c "from medxpert_reg_connector.server import REFS_DIR; print(REFS_DIR); import pathlib; print(len(list(pathlib.Path(REFS_DIR).glob('*.md')), 'md files')"
+        run: |
+          python -c "
+          import pathlib
+          from medxpert_reg_connector.server import REFS_DIR
+          n = len(list(pathlib.Path(REFS_DIR).glob('*.md')))
+          print(REFS_DIR)
+          print(n, 'md files')
+          "
       - name: Contract self-test
         run: python tests/selftest_stdio.py
