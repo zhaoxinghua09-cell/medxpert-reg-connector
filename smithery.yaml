@@ -8,6 +8,6 @@ startCommand:
   commandFunction: |-
     (config) => ({
       "command": "python",
-      "args": ["reg_connector_server.py"],
+      "args": ["-m", "medxpert_reg_connector"],
       "env": {}
     })

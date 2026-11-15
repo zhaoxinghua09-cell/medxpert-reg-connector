@@ -21,7 +21,7 @@
     "type": "stdio",
     "command": "python",
     "args": [
-      "reg_connector_server.py"
+      "medxpert_reg_connector/server.py"
     ]
   },
   "icon": "icon.png",

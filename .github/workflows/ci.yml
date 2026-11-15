@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  selftest:
+    name: Contract self-test (MCP stdio)
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install package
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e .
+      - name: Show bundled knowledge base
+        run: |
+          python -c "
+          import pathlib
+          from medxpert_reg_connector.server import REFS_DIR
+          n = len(list(pathlib.Path(REFS_DIR).glob('*.md')))
+          print(REFS_DIR)
+          print(n, 'md files')
+          "
+      - name: Contract self-test
+        run: python tests/selftest_stdio.py

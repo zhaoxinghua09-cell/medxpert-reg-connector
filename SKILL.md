@@ -33,11 +33,11 @@ reg-connector 是 MedXpert（美达信医疗）医械线的对外接口，把 Me
 - `get_hub(hub_key: str)` — 取某枢纽完整内容（`content + official_links`）。
 - `ask_classification(product: str)` — 产品分类与注册路径速查，返回 `matches + recommended_hubs + hint`。product 为空报错。
 
-服务端标识：`SERVER_NAME = "medxpert-reg-connector"`，版本 1.2.0。
+服务端标识：`SERVER_NAME = "medxpert-reg-connector"`，版本 1.3.0。
 
 ## 3. 一键安装（3 步）
 
-① 把包解压/克隆到本地目录，确保 `references/` 与 `reg_connector_server.py` **同级**（开箱即用）。
+① 把包解压/克隆到本地目录，确保 知识库已随包分发，`pip install` 装完即可用（无需手工放置 `references/`）。
 
 ② 安装依赖：
 
@@ -50,9 +50,9 @@ pip install fastmcp
 ```json
 {
   "mcpServers": {
-    "@nomos/medxpert/reg-connector": {
+    "medxpert-reg-connector": {
       "command": "<你的 python 解释器路径>",
-      "args": ["<medxpert-reg-connector 包目录>/reg_connector_server.py"],
+      "args": ["-m", "medxpert_reg_connector"],
       "disabled": false,
       "description": "MedXpert 全球法规连接器：本地只读检索全球医疗器械法规知识库 (NMPA/FDA/MDR/PMDA 等 27 枢纽)"
     }
@@ -60,7 +60,7 @@ pip install fastmcp
 }
 ```
 
-知识库三级回退：① 包内 `references/` ② 环境变量 `REG_HUB_REFS` ③ 脚本同级 `../references`。
+知识库三级回退：① 包内 `medxpert_reg_connector/data/references/` ② 环境变量 `REG_HUB_REFS` ③ 旧仓库布局 `../references`。
 
 ## 4. 调用示例
 

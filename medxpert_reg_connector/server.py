@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-MedXpert 全球法规连接器 · MCP Server  v1.2.0
+MedXpert 全球法规连接器 · MCP Server  v1.3.0
 =============================================
 把本地法规知识库（27 枢纽）封装成本地只读 MCP Server，
 供 WorkBuddy / Agent / 小艺 Skill 直接调用检索全球医疗器械法规知识。
@@ -11,6 +11,11 @@ v1.1.0 新增「时效护栏」——法规/标准会更新，静态快照必须
 - kb_freshness  报告全库新鲜度与逾期枢纽
 - reg_delta     列出巡检发现的法规变更（读 registry.json deltas）
 - kb_sources    列出官方源注册表（通道/频率/版权等级）
+
+v1.3.0 交付工程化（服务接口不变）：
+- 重构为可安装包 medxpert_reg_connector，知识库随包分发（pip 装完即可用，无需另拉 references/）
+- 7 个工具全部声明只读注解 readOnlyHint/destructiveHint，并为 9 个入参补 schema 说明
+- 版本口径统一：包版本、MCP server.json、注册中心三处一致
 
 v1.2.0 扩展「实时更新能力」（服务接口不变，周边管线增强）：
 - EU 法规变更纳入全自动：cellar_query.py 经 CELLAR SPARQL 取立法 + MDR/IVDR 合并版本
@@ -22,7 +27,7 @@ v1.2.0 扩展「实时更新能力」（服务接口不变，周边管线增强�
 - 付费标准（ISO/IEC/ASTM/GB）全文永不入库，只存编号 + 官方查询入口
 - 本库为「法规导航器 + 时效护栏」，权威真源永远以官方原文为准
 
-运行：python reg_connector_server.py   （stdio 模式）
+运行：python -m medxpert_reg_connector   （stdio 模式）
 依据：MCP 协议 2024-11-05 · fastmcp
 版权：© MedXpert · ORCID 0009-0001-0512-1237
 """
@@ -39,8 +44,11 @@ from fastmcp import FastMCP
 # ---------------------------------------------------------------------------
 # 配置
 # ---------------------------------------------------------------------------
-_BUNDLED = Path(__file__).resolve().parent / "references"
-_SIBLING = Path(__file__).resolve().parent.parent / "references"
+_PKG_DIR = Path(__file__).resolve().parent
+_DATA_DIR = _PKG_DIR / "data"
+# 包内自带知识库（wheel/sdist 均包含）；env 可覆盖，旧仓库布局 references/ 作为回退。
+_BUNDLED = _DATA_DIR / "references"
+_SIBLING = _PKG_DIR.parent / "references"
 
 
 def _resolve_refs_dir() -> Path:
@@ -49,19 +57,26 @@ def _resolve_refs_dir() -> Path:
         p = Path(env_dir)
         if p.is_dir():
             return p.resolve()
-    for cand in (_BUNDLED, _SIBLING, Path(__file__).resolve().parent):
+    for cand in (_BUNDLED, _SIBLING, _DATA_DIR):
         if (cand / "README.md").is_file() or any(cand.glob("*.md")):
             return cand.resolve()
     return _BUNDLED.resolve()
 
 
+def _resolve_data_file(name: str) -> Path:
+    """registry.json / sources.json：包内 data/ 优先，其次旧仓库根布局。"""
+    for cand in (_DATA_DIR / name, _PKG_DIR.parent / name):
+        if cand.is_file():
+            return cand
+    return _DATA_DIR / name
+
+
 REFS_DIR = _resolve_refs_dir()
-_BASE = Path(__file__).resolve().parent
-REGISTRY_PATH = _BASE / "registry.json"
-SOURCES_PATH = _BASE / "sources.json"
+REGISTRY_PATH = _resolve_data_file("registry.json")
+SOURCES_PATH = _resolve_data_file("sources.json")
 
 SERVER_NAME = "medxpert-reg-connector"
-SERVER_VERSION = "1.2.0"
+SERVER_VERSION = "1.3.0"
 SERVER_DESC = (
     "MedXpert 全球法规连接器：本地只读检索全球医疗器械法规知识库 "
     "(NMPA/FDA/MDR/PMDA 等 27 枢纽 + 骨科实证)，返回片段、官方链接、时效标注(as_of/新鲜度)与待核验提示。"
@@ -267,7 +282,8 @@ def search(query: str, top_k: int = 5, hub_filter: str = None) -> list:
 # ---------------------------------------------------------------------------
 # MCP 工具
 # ---------------------------------------------------------------------------
-@mcp.tool()
+@mcp.tool(annotations={"readOnlyHint": True, "destructiveHint": False,
+                       "idempotentHint": True, "openWorldHint": False})
 def list_hubs() -> str:
     """列出法规知识库全部枢纽（主题）及覆盖范围、时效状态，返回 JSON 数组。"""
     hubs = []
@@ -287,11 +303,17 @@ def list_hubs() -> str:
     return json.dumps(hubs, ensure_ascii=False, indent=2)
 
 
-@mcp.tool()
+@mcp.tool(annotations={"readOnlyHint": True, "destructiveHint": False,
+                       "idempotentHint": True, "openWorldHint": False})
 def search_regulation(query: str, top_k: int = 5, hub_filter: str = None) -> str:
     """
     在法规知识库中检索关键词（支持中文/英文/法规号，如 'UDI'、'510k'、'MDR PMS'、'委托生产'）。
     返回命中的枢纽、小节、摘要片段、官方链接、相关度得分与时效标注(as_of/freshness)。
+
+    Args:
+        query: 检索关键词。中英文或法规号均可，如 "UDI"、"510k"、"MDR PMS"、"委托生产"、"ISO 10993"。
+        top_k: 返回条数上限，默认 5；建议 3-10，过大只会稀释上下文而不提升召回精度。
+        hub_filter: 可选，仅在该枢纽内检索；取值须为 list_hubs 返回的 hub_key 之一。
     """
     if not query or not query.strip():
         return json.dumps({"error": "query 不能为空"}, ensure_ascii=False)
@@ -316,9 +338,14 @@ def search_regulation(query: str, top_k: int = 5, hub_filter: str = None) -> str
     return json.dumps(payload, ensure_ascii=False, indent=2)
 
 
-@mcp.tool()
+@mcp.tool(annotations={"readOnlyHint": True, "destructiveHint": False,
+                       "idempotentHint": True, "openWorldHint": False})
 def get_hub(hub_key: str) -> str:
-    """按 hub_key 取某一枢纽的完整整理内容（含全部小节与官方链接、时效与标准指针）。先调用 list_hubs 查看可用 hub_key。"""
+    """按 hub_key 取某一枢纽的完整整理内容（含全部小节与官方链接、时效与标准指针）。先调用 list_hubs 查看可用 hub_key。
+
+    Args:
+        hub_key: 枢纽标识，必须是 list_hubs 返回的 hub_key 之一（如 "风险管理枢纽"、"UDI全球标识枢纽"）。
+    """
     hub = HUB_FILES.get(hub_key)
     if not hub:
         keys = list(HUB_FILES.keys())
@@ -351,11 +378,15 @@ def get_hub(hub_key: str) -> str:
     }, ensure_ascii=False, indent=2)
 
 
-@mcp.tool()
+@mcp.tool(annotations={"readOnlyHint": True, "destructiveHint": False,
+                       "idempotentHint": True, "openWorldHint": False})
 def ask_classification(product: str) -> str:
     """
     产品分类与注册路径速查：输入产品描述（如 '骨科金属接骨板'、'一次性使用输液器'），
     返回相关枢纽、分类线索、官方链接与注册路径建议。
+
+    Args:
+        product: 产品描述的自然语言表述，宜含材质/结构/用途，如 "骨科金属接骨板"、"一次性使用输液器"。
     """
     if not product or not product.strip():
         return json.dumps({"error": "product 不能为空"}, ensure_ascii=False)
@@ -382,7 +413,8 @@ def ask_classification(product: str) -> str:
 
 
 # --------------------------- 时效工具（v1.1.0 新增） ---------------------------
-@mcp.tool()
+@mcp.tool(annotations={"readOnlyHint": True, "destructiveHint": False,
+                       "idempotentHint": True, "openWorldHint": False})
 def kb_freshness() -> str:
     """
     报告知识库新鲜度：全库统计 + 逐枢纽 as_of/age_days/freshness/next_review，
@@ -425,11 +457,17 @@ def kb_freshness() -> str:
     }, ensure_ascii=False, indent=2)
 
 
-@mcp.tool()
+@mcp.tool(annotations={"readOnlyHint": True, "destructiveHint": False,
+                       "idempotentHint": True, "openWorldHint": False})
 def reg_delta(since: str = None, jurisdiction: str = None, limit: int = 50) -> str:
     """
-    列出巡检发现的法规变更流水（读 registry.deltas）。可选按起始日期(since, YYYY-MM-DD)
-    与辖区(jurisdiction: CN/US/EU/JP/GLOBAL)过滤。无巡检记录时返回空并提示如何产生。
+    列出巡检发现的法规变更流水（读 registry.deltas）。可选按起始日期与辖区过滤。
+    无巡检记录时返回空并提示如何产生。
+
+    Args:
+        since: 起始日期，格式 YYYY-MM-DD，仅返回该日及之后登记的变更；留空则返回全部。
+        jurisdiction: 辖区过滤，取 CN / US / EU / JP / GLOBAL；留空则不按辖区过滤。
+        limit: 返回最近条数上限，默认 50。
     """
     deltas = _load_registry().get("deltas", [])
     rows = deltas
@@ -449,11 +487,15 @@ def reg_delta(since: str = None, jurisdiction: str = None, limit: int = 50) -> s
     }, ensure_ascii=False, indent=2)
 
 
-@mcp.tool()
+@mcp.tool(annotations={"readOnlyHint": True, "destructiveHint": False,
+                       "idempotentHint": True, "openWorldHint": False})
 def kb_sources(jurisdiction: str = None) -> str:
     """
     列出官方源注册表（sources.json）：各源权威机构、巡检通道(api/rss/page/sparql/catalog)、
     巡检频率、是否可全自动、版权等级。可选按辖区过滤。
+
+    Args:
+        jurisdiction: 辖区过滤，取 CN / US / EU / JP / GLOBAL；留空则返回全部官方源。
     """
     try:
         src = json.loads(SOURCES_PATH.read_text(encoding="utf-8"))
