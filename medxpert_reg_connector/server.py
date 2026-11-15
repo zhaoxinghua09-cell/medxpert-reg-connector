@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-MedXpert 全球法规连接器 · MCP Server  v1.3.0
+MedXpert 全球法规连接器 · MCP Server（版本取自包 __version__，不在此处写死）
 =============================================
 把本地法规知识库（27 枢纽）封装成本地只读 MCP Server，
 供 WorkBuddy / Agent / 小艺 Skill 直接调用检索全球医疗器械法规知识。
@@ -76,7 +76,11 @@ REGISTRY_PATH = _resolve_data_file("registry.json")
 SOURCES_PATH = _resolve_data_file("sources.json")
 
 SERVER_NAME = "medxpert-reg-connector"
-SERVER_VERSION = "1.3.0"
+# 版本必须以包 __version__ 为唯一真源：此前这里写死 "1.3.0"，导致 1.3.1 之后
+# 每次握手向客户端声明的 serverInfo.version 都是旧值。现在由构造保证不可能漂移。
+from . import __version__ as _PKG_VERSION  # noqa: E402
+
+SERVER_VERSION = _PKG_VERSION
 SERVER_DESC = (
     "MedXpert 全球法规连接器：本地只读检索全球医疗器械法规知识库 "
     "(NMPA/FDA/MDR/PMDA 等 27 枢纽 + 骨科实证)，返回片段、官方链接、时效标注(as_of/新鲜度)与待核验提示。"

@@ -14,6 +14,10 @@ Intentionally NOT checked:
   medxpert_reg_connector/data/registry.json "knowledge_base_version" — it versions the
   knowledge-base lineage, not the release train. It moves only when the content moves.
 
+The ninth location is not a file but a value: server.py's SERVER_VERSION is imported
+and compared at runtime, because 1.3.1-1.3.4 shipped with a literal "1.3.0" there and
+kept announcing the wrong version in every MCP handshake.
+
 Usage:  python tools/version_check.py   # exit 1 on any mismatch
 """
 from __future__ import annotations
@@ -65,6 +69,29 @@ def changelog_top_version() -> str:
     return m.group(1)
 
 
+def server_runtime_version() -> str:
+    """What the MCP handshake actually advertises, read from a real import.
+
+    A literal in server.py is invisible to a file-level check but decides what every
+    client sees in serverInfo.version; that is exactly how 1.3.1-1.3.4 kept
+    announcing 1.3.0. Importing it makes the value, not the text, the thing checked.
+    """
+    import subprocess
+    code = (
+        "from medxpert_reg_connector.server import SERVER_VERSION as v; "
+        "from medxpert_reg_connector import __version__ as w; "
+        "print(v); raise SystemExit(0 if v == w else 3)"
+    )
+    r = subprocess.run([sys.executable, "-c", code], cwd=str(ROOT),
+                       capture_output=True, text=True, encoding="utf-8", errors="replace")
+    out = (r.stdout or "").strip().splitlines()
+    if r.returncode not in (0, 3) or not out:
+        raise SystemExit("cannot import medxpert_reg_connector.server: %s" % (r.stderr or "")[-200:])
+    if r.returncode == 3:
+        raise SystemExit("server.py advertises %s which differs from __version__" % out[-1])
+    return out[-1]
+
+
 def main() -> int:
     want = source_version()
     probes = [
@@ -76,6 +103,7 @@ def main() -> int:
         ("server.json packages[0]", json_field("server.json", "packages", 0, "version")),
         ("SKILL.md", yaml_front_matter_version("SKILL.md")),
         ("CHANGELOG.md", changelog_top_version()),
+        ("server.py handshake (SERVER_VERSION)", server_runtime_version()),
     ]
     bad = [(where, got) for where, got in probes if got != want]
     for where, got in probes:

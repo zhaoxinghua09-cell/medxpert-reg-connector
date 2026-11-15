@@ -23,8 +23,8 @@
 - 发布时间（本地）：2026-08-30T02:28:26.829635
 
 ## 5. 作品指纹（内容哈希）
-- 包指纹 SHA-256：49f08664501d089067a58b6e7f60091682cd8c647c0ec9bd4e35d84392bc85e4
-- 载荷指纹 SHA-256（wheel 内文件，共 34 个）：b8e15c24f2891274be71f6a4b1599ec0167a23d206766148f405fbd2f3c1a4d1
+- 包指纹 SHA-256：b2866791418e14bc8d105cefc8feed1d5d1a00b0eae479ec48467850319599e4
+- 载荷指纹 SHA-256（wheel 内文件，共 34 个）：e3e718674d20547c2a445f0d8c6218127ec238c0710cb73f632230010b864c10
 - **合成规则（显式可复现）**：逐文件哈希 = sha256(文件原始字节)；包指纹 =
   sha256( 按相对路径升序拼接的 `"相对路径:逐文件哈希"` 行，以换行 `\n` 连接 )。
   任何人可用 `sha256sum` 复算每行，再按上述规则重组成指纹。
@@ -39,21 +39,21 @@
 | 文件 | SHA-256 |
 |---|---|
 | .dockerignore | 00abc8ef4bfedab23f6bc89d8f8e95846a5131cf9c39a895f305522db1b1d9fe |
-| CHANGELOG.md | f566b5da264d209d6cb20431e132ab69ce2b6c844e7f8d358ab5c5eb11367c98 |
+| CHANGELOG.md | fb8b1c4215faef0dad9fb78aadc3e07bf1545f9b7d33749d6f860017b6b2b36a |
 | CONTENT-LICENSE | 9cb198d8bc12ff11061f871a253540854253d33eae7819357b56713919861a8a |
 | Dockerfile | ff2b7ca2c8886805f819ee356e33f424a0edaffb6fb164b14dd44e322f181435 |
 | LICENSE | 1dcb7da9d94a5e19f51ccb2f56c5d66ef3d0f9a0de4e4388d01c8a497c0cbaa5 |
 | MANIFEST.in | cdbf7fa4ce55e2accc27a3c71f48d5afaa6a7fa4f53a85c363f947251840535e |
 | README.en.md | 53f7301544c3fdf221ad31ccea1be45262b28ff8d3eb4cfbe09e3af3c2b5944e |
 | README.md | 2497dc2e8d105b852cecc5edf997911fa58f9f171167db4895e9606a5f24cb8d |
-| SKILL.md | 6d1283d34833a57ece5eccce694eb5d15c25f2882933cfbc9337594251cb28ac |
+| SKILL.md | 3d9a468fa9fa7dcc12f78095dfc82b70015376f907a75264411dfce6ffc48ffa |
 | agent.json | 327f2f01642f4491d53eadcb410b12dc9b668b09fd24731869fcd1d9f12c18e3 |
 | assets/icon.svg | 61c91d7922533de490fd9de710f336fd549daa52ac40a8bece394c3a7504f8b9 |
-| connector-meta.json | debe1065a4d3578e896d200568c30dc0a19c442f632ba89f40c7b7600fa44b1c |
+| connector-meta.json | fe7c06b031607ddbfb5edc4c85f038e3d98aae2e568f3e438506d0c7a2e34a58 |
 | glama.json | 03f2a7927ab5b084f52201b99f7803c3521bf65ee1c41a0f18c840687671f66c |
-| manifest.json | df9507c27dc24ce9ca0e1cfd4ea096a793c2153508e01c1445d938a0cb560529 |
+| manifest.json | ee0c19c31a424252c49f78706b292f9b1cbcab8875c8648aac72280d603c8448 |
 | mcp-config.json | 41efcb1e8f85228218fb174ed0bd37de2b4dda4c15471f53e7abb0614b53954c |
-| medxpert_reg_connector/__init__.py | f2f80a0c7256bf19291cdbb5df747cfd5fd8cff00206a525503950dcdf19905b |
+| medxpert_reg_connector/__init__.py | 44cb6d8d3131c8d6757d89f8f8148c8e983d15266b9b362ce951c3c0a0f2395f |
 | medxpert_reg_connector/__main__.py | cfd2ad4e2b9bed625f9eab23060e6877f957641035277eaa4842e86cfff488d7 |
 | medxpert_reg_connector/data/__init__.py | e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 |
 | medxpert_reg_connector/data/references/CN_医疗器械委托生产MAH实务.md | fe0cb05f7ddf9975aded6e5f9681f92c5661e3acc2eddf62b012310561419a87 |
@@ -86,8 +86,8 @@
 | medxpert_reg_connector/data/references/骨科手术器械_全球注册路径汇编.md | 65712dabae21f28eb8a53e7edf9b738eaba910cb2f2a78e9835eae1d011ecfe6 |
 | medxpert_reg_connector/data/registry.json | 208a17b9a920ee0d89d7838cf27173c9174d831669f87108987cf5b0389a5e80 |
 | medxpert_reg_connector/data/sources.json | 44f37171c06ae7d5ba8f3a896ba82584a569408b59f4a7414472a528b868b41f |
-| medxpert_reg_connector/server.py | 47b6009c6ef78b35f7a538b098053aa0f52fda4907744a4694660349305f3fd2 |
-| pyproject.toml | 631ef7dfc60411733ae267788bcddc4c51145cd10ddcc71da779c7ec413df4ea |
+| medxpert_reg_connector/server.py | 84681f207a9b50051242e8a76fc7adb22235ba9f735148de1ba494fecf851fc1 |
+| pyproject.toml | 7e893510cc656f3f6c8392d9057f7c83035f43638b6ca51f739821f1df2adc34 |
 | requirements.txt | f4dbe1751992271c5fe624f3e7cad8c9e6b40ed4ec2a0bc640731165a6bb34de |
-| server.json | cb005948b01587afcb700ab3005bf23723ff9d20d050296ffa332e8dc802ac42 |
+| server.json | d0f20cea37f62ea04ab86b068546a223401e8d8d08e83c914bbc0ba3a711ab4c |
 | smithery.yaml | 5dd5b161c1690f82ee96c38a6fd02d781ef24099d0b5d427e4fa1f1617176c78 |

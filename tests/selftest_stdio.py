@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Contract self-test for medxpert-reg-connector (v1.3.0).
+"""Contract self-test for medxpert-reg-connector (version read from the package).
 
 Real MCP stdio handshake; asserts the tool contract that the catalogs grade:
   - exactly 7 tools, names stable
