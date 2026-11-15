@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="MedXpert Global Regulatory Connector">
+  <title>MedXpert Global Regulatory Connector</title>
+  <rect x="0" y="0" width="512" height="512" rx="96" fill="#0E3B43"/>
+  <path d="M256 72 L384 120 L384 248 C384 330 324 396 256 428 C188 396 128 330 128 248 L128 120 Z"
+        fill="none" stroke="#F2F7F6" stroke-width="16" stroke-linejoin="round"/>
+  <path d="M240 168 H272 V232 H336 V264 H272 V328 H240 V264 H176 V232 H240 Z" fill="#F2F7F6"/>
+  <rect x="176" y="352" width="160" height="10" rx="5" fill="#3FA796"/>
+  <rect x="176" y="378" width="104" height="10" rx="5" fill="#3FA796"/>
+</svg>

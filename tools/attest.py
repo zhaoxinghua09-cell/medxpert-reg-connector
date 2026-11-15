@@ -45,6 +45,16 @@ INCLUDE_GLOBS = [
     "Dockerfile",
     ".dockerignore",
     "glama.json",
+    "assets/*.svg",
+    "medxpert_reg_connector/**/*.py",
+    "medxpert_reg_connector/data/*.json",
+    "medxpert_reg_connector/data/references/*.md",
+]
+
+# Payload = what actually ships inside the wheel. It stays stable across repo-metadata
+# edits (server.json / README / CHANGELOG), so registry metadata can quote it safely
+# without the circular dependency of a file hashing a fingerprint of itself.
+PAYLOAD_GLOBS = [
     "medxpert_reg_connector/**/*.py",
     "medxpert_reg_connector/data/*.json",
     "medxpert_reg_connector/data/references/*.md",
@@ -52,8 +62,16 @@ INCLUDE_GLOBS = [
 
 
 def covered_files() -> list[pathlib.Path]:
+    return _expand(INCLUDE_GLOBS)
+
+
+def payload_files() -> list[pathlib.Path]:
+    return _expand(PAYLOAD_GLOBS)
+
+
+def _expand(patterns: list[str]) -> list[pathlib.Path]:
     seen: dict[str, pathlib.Path] = {}
-    for pattern in INCLUDE_GLOBS:
+    for pattern in patterns:
         for p in ROOT.glob(pattern):
             if p.is_file():
                 seen[p.relative_to(ROOT).as_posix()] = p
@@ -74,6 +92,8 @@ def main() -> int:
     files = covered_files()
     rows = [(p.relative_to(ROOT).as_posix(), digest(p)) for p in files]
     fp = fingerprint(rows)
+    payload = [(p.relative_to(ROOT).as_posix(), digest(p)) for p in payload_files()]
+    payload_fp = fingerprint(payload)
 
     table = "| 文件 | SHA-256 |\n|---|---|\n" + "\n".join(f"| {rel} | {sha} |" for rel, sha in rows) + "\n"
     text = ATTEST.read_text(encoding="utf-8")
@@ -84,17 +104,26 @@ def main() -> int:
         missing = [rel for rel, _ in rows if rel not in dict(old)]
         old_fp = re.search(r"包指纹 SHA-256：([0-9a-f]{64})", text)
         ok_fp = bool(old_fp) and old_fp.group(1) == fp
-        print(f"files={len(rows)} drift={len(drift)} missing={len(missing)} fingerprint_match={ok_fp}")
+        old_pfp = re.search(r"载荷指纹 SHA-256[^：]*：([0-9a-f]{64})", text)
+        ok_pfp = bool(old_pfp) and old_pfp.group(1) == payload_fp
+        print(f"files={len(rows)} drift={len(drift)} missing={len(missing)} "
+              f"fingerprint_match={ok_fp} payload_fingerprint_match={ok_pfp}")
         for rel in (drift + missing)[:10]:
             print("  out of date:", rel)
-        return 0 if not (drift or missing) and ok_fp else 1
+        return 0 if not (drift or missing) and ok_fp and ok_pfp else 1
 
     # Replace the table (everything after the table header line).
     head = text.split("| 文件 | SHA-256 |")[0]
     new_text = head + table
     new_text = re.sub(r"包指纹 SHA-256：[0-9a-f]{64}", f"包指纹 SHA-256：{fp}", new_text)
+    if re.search(r"载荷指纹 SHA-256", new_text):
+        new_text = re.sub(r"(载荷指纹 SHA-256[^：]*：)[0-9a-f]{64}",
+                          lambda m: f"{m.group(1)}{payload_fp}", new_text)
+    else:
+        new_text = re.sub(r"(包指纹 SHA-256：[0-9a-f]{64}\n)",
+                          f"\\1- 载荷指纹 SHA-256（wheel 内文件，共 {len(payload)} 个）：{payload_fp}\n", new_text, count=1)
     ATTEST.write_text(new_text, encoding="utf-8")
-    print(f"files={len(rows)} fingerprint={fp}")
+    print(f"files={len(rows)} fingerprint={fp} payload_files={len(payload)} payload_fingerprint={payload_fp}")
     return 0
 
 
