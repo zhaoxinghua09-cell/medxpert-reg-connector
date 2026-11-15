@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.3.2 — 2026-11-15
+
+**Registry metadata and discoverability release. No code or tool-behaviour change.**
+
+### Added
+- `server.json` now carries `icons` (SVG, `assets/icon.svg`), so registry clients and directories can render a real card instead of a placeholder.
+- `server.json` now carries `_meta` publisher-provided metadata: publisher identity, `payload_fingerprint_sha256`, attestation link, `verify_command`, licence split, `runtime_egress: none`. The fingerprint covers the wheel payload only, so repo-metadata edits cannot silently invalidate the registry entry.
+- `tools/attest.py` now computes and records a **payload fingerprint** (files actually shipped inside the wheel) alongside the package fingerprint; `--check` verifies both.
+- `assets/icon.svg` added to the covered file set.
+
+### Verified
+- `server.json` validates against `https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json` (still the current schema: the official quickstart and 2026-06 registry examples reference it).
+- `tools/attest.py --check` → `files=53 drift=0 missing=0 fingerprint_match=True payload_fingerprint_match=True`.
+
 ## 1.3.1 — 2026-11-15
 
 **Content and documentation release. No code or tool-behaviour change.**

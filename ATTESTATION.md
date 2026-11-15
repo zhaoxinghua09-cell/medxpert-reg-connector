@@ -23,11 +23,13 @@
 - 发布时间（本地）：2026-08-30T02:28:26.829635
 
 ## 5. 作品指纹（内容哈希）
-- 包指纹 SHA-256：9a80a4ffff15361cbd331cb71715ff901600dfbead7260571d968247eea549b5
+- 包指纹 SHA-256：2ab805b8caf3ca970f66cfdb1ee76e3b9eb1257e6ead09d5634610e6b6295f11
+- 载荷指纹 SHA-256（wheel 内文件，共 34 个）：db6688f32df9e249f5a4f294af063a969c1cfa630cbd9d68d43070f568bc8cfa
 - **合成规则（显式可复现）**：逐文件哈希 = sha256(文件原始字节)；包指纹 =
   sha256( 按相对路径升序拼接的 `"相对路径:逐文件哈希"` 行，以换行 `\n` 连接 )。
   任何人可用 `sha256sum` 复算每行，再按上述规则重组成指纹。
 - **复现/校验命令**：`python tools/attest.py`（重算并写入）｜`python tools/attest.py --check`（校验漂移，异常返回码 1）。
+- **载荷指纹**只覆盖 wheel 内实际分发的文件（`medxpert_reg_connector/**`），与包指纹分开：仓库元数据（server.json / README / CHANGELOG）改动不会让引用它的 registry 条目失效。同一数值写入 MCP Registry 条目 `_meta` 的 publisher-provided 字段，可跨库对照。
 - 本指纹由发布包内全部文件的哈希按上述规则合成，可作为该版本
   「于上述时间由 赵兴华 / Steven Zhao·China (ORCID 0009-0001-0512-1237) 发布」的完整性标识。篡改任一文件即导致指纹变化。
 - 加强权属：可将本指纹锚定至可信时间戳服务（RFC3161 TSA）或区块链，
@@ -46,11 +48,12 @@
 | README.md | 2497dc2e8d105b852cecc5edf997911fa58f9f171167db4895e9606a5f24cb8d |
 | SKILL.md | d481a2a105973e4ecc264d62f75442f3d0c7f53208ed26f21101940e89bdb040 |
 | agent.json | 327f2f01642f4491d53eadcb410b12dc9b668b09fd24731869fcd1d9f12c18e3 |
+| assets/icon.svg | 61c91d7922533de490fd9de710f336fd549daa52ac40a8bece394c3a7504f8b9 |
 | connector-meta.json | 3b6b77822a54b4673abc805f84a0d2b3a8921c7f927e1013cbedd4a1e934a34a |
 | glama.json | 03f2a7927ab5b084f52201b99f7803c3521bf65ee1c41a0f18c840687671f66c |
 | manifest.json | c377078a29fd91177e0a1bde443431cd2b6c0660fc8364ec2bb1d15cc13635a5 |
 | mcp-config.json | 41efcb1e8f85228218fb174ed0bd37de2b4dda4c15471f53e7abb0614b53954c |
-| medxpert_reg_connector/__init__.py | 3d2446ae0549c02e0beaec5c3c6b2f74d45492dc862fc0486e13fe1e6ef7900f |
+| medxpert_reg_connector/__init__.py | 0e21bcca529c4a81fa4dc6ce06386919df64ea20bb88bc7d2407d94589c95d1f |
 | medxpert_reg_connector/__main__.py | cfd2ad4e2b9bed625f9eab23060e6877f957641035277eaa4842e86cfff488d7 |
 | medxpert_reg_connector/data/__init__.py | e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 |
 | medxpert_reg_connector/data/references/CN_医疗器械委托生产MAH实务.md | fe0cb05f7ddf9975aded6e5f9681f92c5661e3acc2eddf62b012310561419a87 |
@@ -84,7 +87,7 @@
 | medxpert_reg_connector/data/registry.json | 208a17b9a920ee0d89d7838cf27173c9174d831669f87108987cf5b0389a5e80 |
 | medxpert_reg_connector/data/sources.json | 44f37171c06ae7d5ba8f3a896ba82584a569408b59f4a7414472a528b868b41f |
 | medxpert_reg_connector/server.py | 47b6009c6ef78b35f7a538b098053aa0f52fda4907744a4694660349305f3fd2 |
-| pyproject.toml | 2a43ea1733124385f421d33091e8a1b521fc095e908b6d9bb80b77aa59d1c8cf |
+| pyproject.toml | ab4fa583e6266028b7caf452b205260e022ae945b09cdb0146aedbaf12ea863d |
 | requirements.txt | f4dbe1751992271c5fe624f3e7cad8c9e6b40ed4ec2a0bc640731165a6bb34de |
-| server.json | eba3f6e9328e70d7b4c5e83913ed4204fb0ae7304ab33c9e7209b001cc397467 |
+| server.json | 25d4173ef0cf5c0bff0aac9faa16fb94e95f499c7ec458e21dd0695f495340bb |
 | smithery.yaml | 5dd5b161c1690f82ee96c38a6fd02d781ef24099d0b5d427e4fa1f1617176c78 |
