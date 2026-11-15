@@ -23,7 +23,7 @@
 - 发布时间（本地）：2026-08-30T02:28:26.829635
 
 ## 5. 作品指纹（内容哈希）
-- 包指纹 SHA-256：2eb30f25294faa27ef5a0b6540b61cf616d3acac0555c9c5020189e9c5418fc9
+- 包指纹 SHA-256：f51d4330a551617d4055d64f4142d1d7e73f3cf3c68e27e9245b828fa7e77f41
 - 载荷指纹 SHA-256（wheel 内文件，共 34 个）：e3e718674d20547c2a445f0d8c6218127ec238c0710cb73f632230010b864c10
 - **合成规则（显式可复现）**：逐文件哈希 = sha256(文件原始字节)；包指纹 =
   sha256( 按相对路径升序拼接的 `"相对路径:逐文件哈希"` 行，以换行 `\n` 连接 )。
@@ -39,7 +39,7 @@
 | 文件 | SHA-256 |
 |---|---|
 | .dockerignore | 00abc8ef4bfedab23f6bc89d8f8e95846a5131cf9c39a895f305522db1b1d9fe |
-| CHANGELOG.md | fb8b1c4215faef0dad9fb78aadc3e07bf1545f9b7d33749d6f860017b6b2b36a |
+| CHANGELOG.md | 768a817c1357e7559faeb99e34164599e70e1462735a01dd7b6fa4b583c7ec14 |
 | CONTENT-LICENSE | 9cb198d8bc12ff11061f871a253540854253d33eae7819357b56713919861a8a |
 | Dockerfile | ff2b7ca2c8886805f819ee356e33f424a0edaffb6fb164b14dd44e322f181435 |
 | LICENSE | 1dcb7da9d94a5e19f51ccb2f56c5d66ef3d0f9a0de4e4388d01c8a497c0cbaa5 |
@@ -89,5 +89,5 @@
 | medxpert_reg_connector/server.py | 84681f207a9b50051242e8a76fc7adb22235ba9f735148de1ba494fecf851fc1 |
 | pyproject.toml | 7e893510cc656f3f6c8392d9057f7c83035f43638b6ca51f739821f1df2adc34 |
 | requirements.txt | f4dbe1751992271c5fe624f3e7cad8c9e6b40ed4ec2a0bc640731165a6bb34de |
-| server.json | 4f8e4a78c5a15ef689804c5165f51ec9f8b7f03a32510aab2515d916f9b7eacd |
+| server.json | d2c0b5fbaccd777c92b4df7dab51d854d588b4987bb89c31884b7bb3c546c9c3 |
 | smithery.yaml | 5dd5b161c1690f82ee96c38a6fd02d781ef24099d0b5d427e4fa1f1617176c78 |

@@ -83,14 +83,27 @@ def check_pypi(version: str):
     return True, w["digests"]["sha256"]
 
 
-def check_file_hash(declared: str, digest: str) -> bool:
+def check_file_hash(sj: dict, digest: str) -> bool:
+    """Compare the digest we publish with the wheel PyPI serves.
+
+    Where it lives matters: the official registry rejects `packages[].fileSha256`
+    for PyPI packages ("only for MCPB packages"), even though the 2025-12-11 schema
+    marks it optional for every package type. So for PyPI the digest goes in
+    `_meta` → publisher-provided → `wheel_sha256`, which the registry preserves.
+    Whichever of the two fields is present is the one checked.
+    """
+    declared = sj.get("packages", [{}])[0].get("fileSha256", "")
     if not declared:
-        print("[SKIP] fileSha256: not set in server.json (optional field)")
+        declared = (sj.get("_meta", {})
+                    .get("io.modelcontextprotocol.registry/publisher-provided", {})
+                    .get("wheel_sha256", ""))
+    if not declared:
+        print("[SKIP] wheel digest: not published in server.json")
         return True
     if declared == digest:
-        print("[PASS] fileSha256 matches the wheel PyPI serves")
+        print("[PASS] published wheel digest matches the wheel PyPI serves")
         return True
-    print("[FAIL] fileSha256 %s != pypi %s" % (declared, digest))
+    print("[FAIL] published digest %s != pypi %s" % (declared, digest))
     return False
 
 
@@ -155,7 +168,7 @@ def main() -> int:
     if not a.offline:
         ok_pypi, digest = check_pypi(v)
         results.append(ok_pypi)
-        results.append(check_file_hash(sj.get("packages", [{}])[0].get("fileSha256", ""), digest))
+        results.append(check_file_hash(sj, digest))
         results.append(check_registry(v))
         results.append(check_urls(sj))
     passed = all(results)
