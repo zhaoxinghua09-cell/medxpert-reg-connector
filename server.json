@@ -33,7 +33,8 @@
       "attestation": "https://github.com/zhaoxinghua09-cell/medxpert-reg-connector/blob/main/ATTESTATION.md",
       "verify_command": "python tools/attest.py --check",
       "license": "Apache-2.0 (code) / content license in CONTENT-LICENSE",
-      "runtime_egress": "none"
+      "runtime_egress": "none",
+      "wheel_sha256": "5f7b716b748ba6e163d897ff85a7dbad38f956ad1cd77ef5bb0dc364b724139d"
     }
   },
   "packages": [
@@ -43,7 +44,6 @@
       "identifier": "medxpert-reg-connector",
       "version": "1.3.5",
       "runtimeHint": "uvx",
-      "fileSha256": "5f7b716b748ba6e163d897ff85a7dbad38f956ad1cd77ef5bb0dc364b724139d",
       "transport": {
         "type": "stdio"
       }

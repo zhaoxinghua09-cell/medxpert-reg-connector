@@ -21,9 +21,13 @@ wrong order has already produced a red run or a wrong artifact.
    `400 … was not found`.
 7. **Then the hash.** Read the wheel sha256 from
    `https://pypi.org/pypi/medxpert-reg-connector/<version>/json` and write it into
-   `server.json` → `packages[0].fileSha256`. It must come from the published
-   wheel: `uv build` is **not** byte-reproducible (zip timestamps differ run to
-   run), so a locally built hash would describe a file nobody downloads.
+   `server.json` → `_meta` → publisher-provided → `wheel_sha256`. It must come from
+   the published wheel: `uv build` is **not** byte-reproducible (zip timestamps
+   differ run to run), so a locally built hash would describe a file nobody
+   downloads. Do **not** use `packages[].fileSha256`: the 2025-12-11 schema marks it
+   optional for every package type, but the official registry rejects it for PyPI
+   with `PyPI packages must not have 'fileSha256' field - this is only for MCPB
+   packages` (hit for real on 1.3.5).
 8. **Tag.** `git tag vX.Y.Z && git push origin vX.Y.Z` — only after
    `python tools/release_check.py --offline` prints ALL PASS.
 9. **Registry.** Run the registry workflow by `workflow_dispatch`; confirm the
@@ -58,9 +62,12 @@ Two prohibitions, both learned the hard way:
    包，先推 tag 必回 `400 … was not found`。
 7. **再写哈希**：从
    `https://pypi.org/pypi/medxpert-reg-connector/<version>/json` 取 wheel 的
-   sha256，写入 `server.json` → `packages[0].fileSha256`。必须取自已发布的
-   wheel：`uv build` **不可字节复现**（zip 时间戳每次不同），本地算出的哈希
-   描述的是没人下载的那个文件。
+   sha256，写入 `server.json` → `_meta` → publisher-provided → `wheel_sha256`。
+   必须取自已发布的 wheel：`uv build` **不可字节复现**（zip 时间戳每次不同），
+   本地算出的哈希描述的是没人下载的那个文件。**不要**用
+   `packages[].fileSha256`：2025-12-11 的 schema 允许它，但官方 Registry 对 PyPI
+   包直接拒绝——`PyPI packages must not have 'fileSha256' field - this is only for
+   MCPB packages`（1.3.5 实测踩到）。
 8. **打 tag**：`python tools/release_check.py --offline` 打印 ALL PASS 之后，
    才 `git tag vX.Y.Z && git push origin vX.Y.Z`。
 9. **Registry**：用 `workflow_dispatch` 跑注册工作流，核对新条目带 `icons`、

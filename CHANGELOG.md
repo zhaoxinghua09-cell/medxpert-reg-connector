@@ -5,13 +5,15 @@
 **Verifiability and release-process gates. No code or tool-behaviour change.**
 
 ### Added
-- `server.json` → `packages[0].fileSha256`: the SHA-256 of the wheel PyPI actually serves, so a client that supports the field can verify the download before running it. The hash is read back from `https://pypi.org/pypi/medxpert-reg-connector/<version>/json` after publication, never from a local build — `uv build` is not byte-reproducible (zip timestamps differ run to run), so a locally computed hash would describe a file nobody downloads.
+- `server.json` → `_meta` → publisher-provided → `wheel_sha256`: the SHA-256 of the wheel PyPI actually serves, so anyone can verify the download. The hash is read back from `https://pypi.org/pypi/medxpert-reg-connector/<version>/json` after publication, never from a local build — `uv build` is not byte-reproducible (zip timestamps differ run to run), so a locally computed hash would describe a file nobody downloads.
+  Placed in `_meta` rather than `packages[0].fileSha256` on purpose: the 2025-12-11 schema marks `fileSha256` optional for every package type, but the official registry rejects it for PyPI — `PyPI packages must not have 'fileSha256' field - this is only for MCPB packages` (returned as HTTP 400 on the first 1.3.5 submission, run 43663141632). The value is the same either way; only the channel that accepts it changed.
 - `tools/release_check.py`: one command that proves the public surfaces agree — version consistency across the 8 manifests, PyPI serving this version, `fileSha256` equal to the served wheel's digest, the registry's newest entry carrying this version, and `websiteUrl` plus every icon URL answering 200. Exits non-zero on any failure; `--offline` runs the manifest check only.
 - `tools/check_sources.py` + `.github/workflows/link-audit.yml`: a weekly probe of every URL in `data/sources.json`, classifying each result as OK / BLOCKED (anti-bot: NMPA 412, ISO 403 — the site is up, the robot is refused) / FAIL (timeout, DNS, 5xx — the signal that a source moved). Advisory by default so a monitored repository is never failed by the monitor.
 - `docs/RELEASE.md`: the release order as a written procedure, bilingual, including why PyPI must precede the tag and the two prohibitions this project has already paid for (`git reset --hard` discarding uncommitted work; an immutable tag).
 
 ### 中文摘要
-- `server.json` 增加 `packages[0].fileSha256`：填入 PyPI 真正在分发的那个 wheel 的 SHA-256，支持该字段的客户端可在运行前校验下载物。哈希取自发布后的 PyPI JSON，不取本地构建——`uv build` 不可字节复现（zip 时间戳每次不同），本地算的哈希描述的是没人下载的文件。
+- `server.json` 增加 `_meta` → publisher-provided → `wheel_sha256`：填入 PyPI 真正在分发的那个 wheel 的 SHA-256，任何人可据此校验下载物。哈希取自发布后的 PyPI JSON，不取本地构建——`uv build` 不可字节复现（zip 时间戳每次不同），本地算的哈希描述的是没人下载的文件。
+  刻意放在 `_meta` 而不是 `packages[0].fileSha256`：2025-12-11 的 schema 对每种包类型都允许 `fileSha256`，但官方 Registry 对 PyPI 包直接拒绝——`PyPI packages must not have 'fileSha256' field - this is only for MCPB packages`（1.3.5 首次提交实测 HTTP 400，run 43663141632）。值不变，只是换了一个收得下的通道。
 - 新增 `tools/release_check.py`：一条命令证明各公开面一致——8 处版本、PyPI 是否已发该版本、`fileSha256` 是否等于线上 wheel 摘要、Registry 最新条目是否已是该版本、`websiteUrl` 与全部图标 URL 是否 200。任一失败即非零退出；`--offline` 只跑清单检查。
 - 新增 `tools/check_sources.py` 与每周 `link-audit` 工作流：巡检 `data/sources.json` 全部官方源，结果分 OK / BLOCKED（反爬：NMPA 412、ISO 403，站点在、拒绝机器人）/ FAIL（超时、DNS、5xx，才是"源搬了"）。默认只告警，不让巡检把被巡检的仓库判红。
 - 新增 `docs/RELEASE.md`：把发布顺序写成规程，中英双语，说明为何必须先发 PyPI 再打 tag，以及本项目已经付过代价的两条禁令（`git reset --hard` 清空未提交编辑；tag 不可移动）。
