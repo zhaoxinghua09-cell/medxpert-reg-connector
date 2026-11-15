@@ -1,14 +1,13 @@
 name: Publish to PyPI
 
-# Zero-token publishing via PyPI Trusted Publishing (OIDC).
-# Prerequisite (one-time, done by the owner in the PyPI web UI):
-#   PyPI -> Account -> Publishing -> Add a pending publisher
-#     Project name   : medxpert-reg-connector
-#     Owner          : zhaoxinghua09-cell
-#     Repository     : medxpert-reg-connector
-#     Workflow name  : publish-pypi.yml
-#     Environment    : pypi
-# After that, publishing a GitHub Release (or running this workflow manually) ships to PyPI.
+# Two supported routes:
+#   1) Token route (default today): repository secret PYPI_API_TOKEN, an API token with
+#      upload scope from the PyPI account. Works immediately, no PyPI-side setup.
+#   2) OIDC route (preferred long term, zero secrets): PyPI -> Account -> Publishing ->
+#      Add a pending publisher (project medxpert-reg-connector, owner zhaoxinghua09-cell,
+#      repo medxpert-reg-connector, workflow publish-pypi.yml, environment pypi).
+#      Once that exists, switch the publish step back to `uses: pypa/gh-action-pypi-publish@release/v1`
+#      with `permissions: id-token: write` and drop the `with: password`.
 
 on:
   release:
@@ -39,17 +38,18 @@ jobs:
           path: dist/
 
   publish:
-    name: Publish to PyPI (OIDC)
+    name: Publish to PyPI
     needs: build
     runs-on: ubuntu-latest
     environment:
       name: pypi
       url: https://pypi.org/p/medxpert-reg-connector
-    permissions:
-      id-token: write   # required for Trusted Publishing
     steps:
       - uses: actions/download-artifact@v4
         with:
           name: dist
           path: dist/
-      - uses: pypa/gh-action-pypi-publish@release/v1
+      - name: Publish
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          password: ${{ secrets.PYPI_API_TOKEN }}
