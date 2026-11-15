@@ -23,8 +23,8 @@
 - 发布时间（本地）：2026-08-30T02:28:26.829635
 
 ## 5. 作品指纹（内容哈希）
-- 包指纹 SHA-256：2ab805b8caf3ca970f66cfdb1ee76e3b9eb1257e6ead09d5634610e6b6295f11
-- 载荷指纹 SHA-256（wheel 内文件，共 34 个）：db6688f32df9e249f5a4f294af063a969c1cfa630cbd9d68d43070f568bc8cfa
+- 包指纹 SHA-256：fe7e427fe5cafc20e2ab5601c9b6ad1d405e525092e3941452311a06a9af9a55
+- 载荷指纹 SHA-256（wheel 内文件，共 34 个）：a0b22910ebd04e88cae088caaee6cff76957c6fdfe13f958e02d3dfe56e14fa1
 - **合成规则（显式可复现）**：逐文件哈希 = sha256(文件原始字节)；包指纹 =
   sha256( 按相对路径升序拼接的 `"相对路径:逐文件哈希"` 行，以换行 `\n` 连接 )。
   任何人可用 `sha256sum` 复算每行，再按上述规则重组成指纹。
@@ -39,7 +39,7 @@
 | 文件 | SHA-256 |
 |---|---|
 | .dockerignore | 00abc8ef4bfedab23f6bc89d8f8e95846a5131cf9c39a895f305522db1b1d9fe |
-| CHANGELOG.md | 8a9173ca74e591d8db0dcf468545fd1db5912032e889f48997bb920f277f97d8 |
+| CHANGELOG.md | c1bcb8c15b29a288e947edbb4ade0cc857c17d48e29ecce48d9e9078a83f9fc8 |
 | CONTENT-LICENSE | 9cb198d8bc12ff11061f871a253540854253d33eae7819357b56713919861a8a |
 | Dockerfile | ff2b7ca2c8886805f819ee356e33f424a0edaffb6fb164b14dd44e322f181435 |
 | LICENSE | 1dcb7da9d94a5e19f51ccb2f56c5d66ef3d0f9a0de4e4388d01c8a497c0cbaa5 |
@@ -53,7 +53,7 @@
 | glama.json | 03f2a7927ab5b084f52201b99f7803c3521bf65ee1c41a0f18c840687671f66c |
 | manifest.json | c377078a29fd91177e0a1bde443431cd2b6c0660fc8364ec2bb1d15cc13635a5 |
 | mcp-config.json | 41efcb1e8f85228218fb174ed0bd37de2b4dda4c15471f53e7abb0614b53954c |
-| medxpert_reg_connector/__init__.py | 0e21bcca529c4a81fa4dc6ce06386919df64ea20bb88bc7d2407d94589c95d1f |
+| medxpert_reg_connector/__init__.py | 189cf799709385b753382b9c0fae44468f3d07fa57a6694264a4e58c27bb8989 |
 | medxpert_reg_connector/__main__.py | cfd2ad4e2b9bed625f9eab23060e6877f957641035277eaa4842e86cfff488d7 |
 | medxpert_reg_connector/data/__init__.py | e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 |
 | medxpert_reg_connector/data/references/CN_医疗器械委托生产MAH实务.md | fe0cb05f7ddf9975aded6e5f9681f92c5661e3acc2eddf62b012310561419a87 |
@@ -87,7 +87,7 @@
 | medxpert_reg_connector/data/registry.json | 208a17b9a920ee0d89d7838cf27173c9174d831669f87108987cf5b0389a5e80 |
 | medxpert_reg_connector/data/sources.json | 44f37171c06ae7d5ba8f3a896ba82584a569408b59f4a7414472a528b868b41f |
 | medxpert_reg_connector/server.py | 47b6009c6ef78b35f7a538b098053aa0f52fda4907744a4694660349305f3fd2 |
-| pyproject.toml | ab4fa583e6266028b7caf452b205260e022ae945b09cdb0146aedbaf12ea863d |
+| pyproject.toml | 02cb8fcd38787c4225ec5a885a363cf8cf19a9893125539c01c3a241522ce591 |
 | requirements.txt | f4dbe1751992271c5fe624f3e7cad8c9e6b40ed4ec2a0bc640731165a6bb34de |
-| server.json | 25d4173ef0cf5c0bff0aac9faa16fb94e95f499c7ec458e21dd0695f495340bb |
+| server.json | 151aa2dd60fb654818218d75470ae3183d7978e54fa7326e02b6ac9e62665c15 |
 | smithery.yaml | 5dd5b161c1690f82ee96c38a6fd02d781ef24099d0b5d427e4fa1f1617176c78 |
