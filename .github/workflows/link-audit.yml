@@ -1,0 +1,22 @@
+name: link-audit
+
+on:
+  schedule:
+    - cron: "0 1 * * 1"   # Monday 01:00 UTC / 每周一 09:00 CST
+  workflow_dispatch:
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Probe the registered official sources
+        run: python tools/check_sources.py | tee link-audit.txt
+      - name: Keep the report
+        uses: actions/upload-artifact@v4
+        with:
+          name: link-audit-${{ github.run_id }}
+          path: link-audit.txt
