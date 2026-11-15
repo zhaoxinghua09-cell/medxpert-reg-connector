@@ -117,16 +117,30 @@ def check_registry(version: str) -> bool:
 
 def check_urls(sj: dict) -> bool:
     ok = True
-    targets = [(sj.get("websiteUrl"), "websiteUrl")] + [(i.get("src"), "icon") for i in sj.get("icons", [])]
-    for url, label in targets:
+    try:
+        r = http(sj.get("websiteUrl"), timeout=20)
+        print("[PASS] websiteUrl: %s %s" % (r.status, sj.get("websiteUrl")))
+    except Exception as e:
+        print("[FAIL] websiteUrl: %s %s" % (type(e).__name__, sj.get("websiteUrl")))
+        ok = False
+    # The first icon is the one clients render, so it must answer. Later entries are
+    # declared fallbacks; a fallback that is unreachable from a given network is a
+    # WARN, not a FAIL - otherwise this gate fails forever from mainland China,
+    # where raw.githubusercontent.com is blocked, and stops meaning anything.
+    for idx, icon in enumerate(sj.get("icons", [])):
+        url = icon.get("src")
         if not url:
             continue
+        label = "icon[0] (primary)" if idx == 0 else "icon[%d] (fallback)" % idx
         try:
             r = http(url, timeout=20)
             print("[PASS] %s: %s %s" % (label, r.status, url))
         except Exception as e:
-            print("[FAIL] %s: %s %s" % (label, type(e).__name__, url))
-            ok = False
+            if idx == 0:
+                print("[FAIL] %s: %s %s" % (label, type(e).__name__, url))
+                ok = False
+            else:
+                print("[WARN] %s unreachable from this network (%s): %s" % (label, type(e).__name__, url))
     return ok
 
 
