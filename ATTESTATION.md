@@ -23,8 +23,12 @@
 - 发布时间（本地）：2026-08-30T02:28:26.829635
 
 ## 5. 作品指纹（内容哈希）
-- 包指纹 SHA-256：5ead9c8b1f984614fb58948ab5484bd0cbfc4d4b08cdb35845a4cd5b855f61fb
-- 本指纹由发布包内全部文件的哈希按确定顺序合成，可作为该版本
+- 包指纹 SHA-256：9a80a4ffff15361cbd331cb71715ff901600dfbead7260571d968247eea549b5
+- **合成规则（显式可复现）**：逐文件哈希 = sha256(文件原始字节)；包指纹 =
+  sha256( 按相对路径升序拼接的 `"相对路径:逐文件哈希"` 行，以换行 `\n` 连接 )。
+  任何人可用 `sha256sum` 复算每行，再按上述规则重组成指纹。
+- **复现/校验命令**：`python tools/attest.py`（重算并写入）｜`python tools/attest.py --check`（校验漂移，异常返回码 1）。
+- 本指纹由发布包内全部文件的哈希按上述规则合成，可作为该版本
   「于上述时间由 赵兴华 / Steven Zhao·China (ORCID 0009-0001-0512-1237) 发布」的完整性标识。篡改任一文件即导致指纹变化。
 - 加强权属：可将本指纹锚定至可信时间戳服务（RFC3161 TSA）或区块链，
   形成不可抵赖的「在先发表」证据（该步骤需外部服务，须经确认后单独执行）。
@@ -32,21 +36,28 @@
 ## 附：文件清单与逐文件哈希
 | 文件 | SHA-256 |
 |---|---|
+| .dockerignore | 00abc8ef4bfedab23f6bc89d8f8e95846a5131cf9c39a895f305522db1b1d9fe |
+| CHANGELOG.md | 8a9173ca74e591d8db0dcf468545fd1db5912032e889f48997bb920f277f97d8 |
+| CONTENT-LICENSE | 9cb198d8bc12ff11061f871a253540854253d33eae7819357b56713919861a8a |
+| Dockerfile | ff2b7ca2c8886805f819ee356e33f424a0edaffb6fb164b14dd44e322f181435 |
 | LICENSE | 1dcb7da9d94a5e19f51ccb2f56c5d66ef3d0f9a0de4e4388d01c8a497c0cbaa5 |
-| SKILL.md | d481a2a105973e4ecc264d62f75442f3d0c7f53208ed26f21101940e89bdb040 |
-| mcp-config.json | 41efcb1e8f85228218fb174ed0bd37de2b4dda4c15471f53e7abb0614b53954c |
-| README.md | 1d92922580a083ff57c602a6c6031edde1f84f491a85ea7299e86a77bbf89885 |
+| MANIFEST.in | cdbf7fa4ce55e2accc27a3c71f48d5afaa6a7fa4f53a85c363f947251840535e |
 | README.en.md | 53f7301544c3fdf221ad31ccea1be45262b28ff8d3eb4cfbe09e3af3c2b5944e |
-| server.json | 8ca66522f63ea8c5a62f0cf00b9bb21e378a5e81a1e78eb96ee9fe319478b015 |
-| pyproject.toml | 4cbdcac73b451e046b7bd975465a9c64ced5e7a4d69cc3f2d0ee859285e2ca17 |
-| medxpert_reg_connector/server.py | 47b6009c6ef78b35f7a538b098053aa0f52fda4907744a4694660349305f3fd2 |
-| medxpert_reg_connector/data/registry.json | d799be111b320b2b5b69f37b03d1a4ec2ec40caaa58f221402150fa25d7a1ce1 |
-| medxpert_reg_connector/data/sources.json | 44f37171c06ae7d5ba8f3a896ba82584a569408b59f4a7414472a528b868b41f |
+| README.md | 2497dc2e8d105b852cecc5edf997911fa58f9f171167db4895e9606a5f24cb8d |
+| SKILL.md | d481a2a105973e4ecc264d62f75442f3d0c7f53208ed26f21101940e89bdb040 |
+| agent.json | 327f2f01642f4491d53eadcb410b12dc9b668b09fd24731869fcd1d9f12c18e3 |
+| connector-meta.json | 3b6b77822a54b4673abc805f84a0d2b3a8921c7f927e1013cbedd4a1e934a34a |
+| glama.json | 03f2a7927ab5b084f52201b99f7803c3521bf65ee1c41a0f18c840687671f66c |
+| manifest.json | c377078a29fd91177e0a1bde443431cd2b6c0660fc8364ec2bb1d15cc13635a5 |
+| mcp-config.json | 41efcb1e8f85228218fb174ed0bd37de2b4dda4c15471f53e7abb0614b53954c |
+| medxpert_reg_connector/__init__.py | 3d2446ae0549c02e0beaec5c3c6b2f74d45492dc862fc0486e13fe1e6ef7900f |
+| medxpert_reg_connector/__main__.py | cfd2ad4e2b9bed625f9eab23060e6877f957641035277eaa4842e86cfff488d7 |
+| medxpert_reg_connector/data/__init__.py | e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 |
 | medxpert_reg_connector/data/references/CN_医疗器械委托生产MAH实务.md | fe0cb05f7ddf9975aded6e5f9681f92c5661e3acc2eddf62b012310561419a87 |
 | medxpert_reg_connector/data/references/EU_EUDAMED数据库实务.md | 1c31e8d38d23e0378ea633e6a75263a3352bb03bb1f312b6e0e539df66cabec0 |
 | medxpert_reg_connector/data/references/EU_MDR上市后监管PMS实务.md | aa8c6718bf5fcee34050ba6de895dfff34a64350a2efaff4f85c965891305fe1 |
 | medxpert_reg_connector/data/references/FDA_UDI实施实务.md | 455244cf60d5b12e34a651e44f48a232bd5cf5fd20797194c1c8c1a51f6dc7c7 |
-| medxpert_reg_connector/data/references/FDA创伤敷料供应链穿透检查枢纽.md | 0cfbfdb94fdc7e36030c34e93fa1cc0a8f85332e8f9c46249b43295424cf8b96 |
+| medxpert_reg_connector/data/references/FDA创伤敷料供应链穿透检查枢纽.md | ef34f9b425d99233abc347544a7fd3497ea9bb89eeb6f450370e88a14227ae50 |
 | medxpert_reg_connector/data/references/GMP质量体系与验证枢纽.md | 571b953db0e5913b9fb25a4e6227f9ee926252de513cae2db8993cd4abea8a4a |
 | medxpert_reg_connector/data/references/README.md | 8091a6943063d0fec19bfefa7b7b8aedfa3d768bc94cbbc48cd3fe1d70f35c09 |
 | medxpert_reg_connector/data/references/UDI全球标识枢纽.md | 4390655c486e09b46cbaa08aa874146e6597ca17521184f659f95d2f859b5883 |
@@ -69,4 +80,11 @@
 | medxpert_reg_connector/data/references/软件人因枢纽.md | 5f80f78221530cc673cd1f5ab65aa216fa1e8b9a0efc31161fdcaf992af68bc5 |
 | medxpert_reg_connector/data/references/需求调研与立项枢纽.md | 0dfa8244eb6210647b1cdd980cda294f9a49f434f11237ff9dbd49e06a790abd |
 | medxpert_reg_connector/data/references/风险管理枢纽.md | 71863ea41a8952c8b18d9b76f581ea4d31f7fa399241ea3f71e637e64d0d32f5 |
-| medxpert_reg_connector/data/references/骨科手术器械_全球注册路径汇编.md | 1966f47e44e5a1ea94d3a845d34e8fe615f3bfb8481723ac2122ee39354a8198 |
+| medxpert_reg_connector/data/references/骨科手术器械_全球注册路径汇编.md | 65712dabae21f28eb8a53e7edf9b738eaba910cb2f2a78e9835eae1d011ecfe6 |
+| medxpert_reg_connector/data/registry.json | 208a17b9a920ee0d89d7838cf27173c9174d831669f87108987cf5b0389a5e80 |
+| medxpert_reg_connector/data/sources.json | 44f37171c06ae7d5ba8f3a896ba82584a569408b59f4a7414472a528b868b41f |
+| medxpert_reg_connector/server.py | 47b6009c6ef78b35f7a538b098053aa0f52fda4907744a4694660349305f3fd2 |
+| pyproject.toml | 2a43ea1733124385f421d33091e8a1b521fc095e908b6d9bb80b77aa59d1c8cf |
+| requirements.txt | f4dbe1751992271c5fe624f3e7cad8c9e6b40ed4ec2a0bc640731165a6bb34de |
+| server.json | eba3f6e9328e70d7b4c5e83913ed4204fb0ae7304ab33c9e7209b001cc397467 |
+| smithery.yaml | 5dd5b161c1690f82ee96c38a6fd02d781ef24099d0b5d427e4fa1f1617176c78 |
