@@ -45,11 +45,30 @@ jobs:
       name: pypi
       url: https://pypi.org/p/medxpert-reg-connector
     steps:
+      # A GitHub Release can be cut for a version that is already on PyPI (for example
+      # when the upload happened outside CI). PyPI rejects a duplicate file with 400,
+      # so check first instead of painting the release red.
+      - name: Check whether this version is already on PyPI
+        id: check
+        run: |
+          NAME=$(python3 -c "import tomllib;print(tomllib.load(open('pyproject.toml','rb'))['project']['name'])" 2>/dev/null || echo medxpert-reg-connector)
+          VER=$(python3 -c "import zipfile,glob;print(glob.glob('dist/*.whl')[0].split('-')[1])")
+          echo "checking $NAME $VER on PyPI"
+          CODE=$(curl -s -o /dev/null -w '%{http_code}' "https://pypi.org/pypi/$NAME/$VER/json")
+          if [ "$CODE" = "200" ]; then
+            echo "already_exists=true" >> "$GITHUB_OUTPUT"
+            echo "::notice::version $VER already on PyPI, publish skipped"
+          else
+            echo "already_exists=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - uses: actions/download-artifact@v4
+        if: steps.check.outputs.already_exists == 'false'
         with:
           name: dist
           path: dist/
       - name: Publish
+        if: steps.check.outputs.already_exists == 'false'
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
           password: ${{ secrets.PYPI_API_TOKEN }}
