@@ -1,5 +1,23 @@
 # Changelog
 
+## 1.3.4 — 2026-11-15
+
+**Version consistency and a false attestation removed. No code or tool-behaviour change.**
+
+### Fixed
+- Three manifests and one skill header still said `1.2.0` while the package had shipped 1.3.1, 1.3.2 and 1.3.3: `connector-meta.json`, `lhm.plugin.json`, `manifest.json`, and the `version:` front-matter of `SKILL.md`. Directory sites read those files, which is why a listing could say 1.2.0 while PyPI said 1.3.3. All four now read from the package version.
+- `manifest.json` carried its own per-file hash table and a package fingerprint from 1.2.0, describing a **pre-packaging layout** (`registry.json` / `sources.json` at repo root) that no longer exists — it was attesting files that had been deleted. It is now a pointer to `ATTESTATION.md` and `tools/attest.py`, with an explicit note in English and Chinese that it is no longer a hash source.
+
+### Added
+- `tools/version_check.py`: single source of truth is `medxpert_reg_connector/__init__.py __version__`; the check compares pyproject, `connector-meta.json`, `lhm.plugin.json`, `manifest.json`, `server.json` (entry + package), `SKILL.md` front-matter and the newest `CHANGELOG.md` heading, and fails on any mismatch. Wired into CI, so this drift cannot ship again.
+- Deliberately excluded: `data/registry.json` → `knowledge_base_version`, which versions the knowledge-base lineage, not the release train.
+
+### 中文摘要
+- `connector-meta.json` / `lhm.plugin.json` / `manifest.json` / `SKILL.md` 四处仍写着 `1.2.0`，而包已经发到 1.3.3——目录站正是读这些文件，所以会出现「PyPI 是 1.3.3、展示是 1.2.0」。四处全部改为跟随包版本。
+- `manifest.json` 自带的哈希表与包指纹是 1.2.0 时期的**打包前布局**（`registry.json` / `sources.json` 还在仓库根），所证文件早已不存在；现改为指向 `ATTESTATION.md` 与 `tools/attest.py`，并用中英文写明它不再是哈希依据。
+- 新增 `tools/version_check.py`，以 `__init__.py __version__` 为唯一真源核对 8 处版本，并接入 CI——这种漂移不会再发出去。
+- 刻意排除 `data/registry.json` 的 `knowledge_base_version`：它记的是知识库血统，不是发版序号。
+
 ## 1.3.3 — 2026-11-15
 
 **Icon hosting fix. No code or tool-behaviour change.**

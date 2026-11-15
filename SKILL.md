@@ -4,7 +4,7 @@ slug: medxpert-reg-connector
 title: MedXpert 全球法规连接器（MCP）
 displayName: MedXpert·全球法规连接器
 display_name: MedXpert·全球法规连接器
-version: 1.2.0
+version: 1.3.4
 category: knowledge-management
 xiaping_category: ["学术研究"]
 platforms: [WorkBuddy, QClaw, ima, Claude Code, Cursor]

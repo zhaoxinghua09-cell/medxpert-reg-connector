@@ -2,7 +2,7 @@
   "identifier": "zhaoxinghua09-cell-medxpert-reg-connector",
   "name": "MedXpert Global Regulatory Connector (reg-connector)",
   "description": "Read-only local MCP server for global medical-device regulation (NMPA / FDA / EU MDR / PMDA and orthopedic global registration pathways). Wraps 27 regulatory knowledge hubs into 7 tools for any MCP client to query — zero network egress, zero credentials, on-premise compliant.",
-  "version": "1.2.0",
+  "version": "1.3.4",
   "author": "赵兴华 / Steven Zhao·China",
   "authorUrl": "https://github.com/zhaoxinghua09-cell",
   "homepage": "https://github.com/zhaoxinghua09-cell/medxpert-reg-connector",
