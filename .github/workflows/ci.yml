@@ -31,5 +31,8 @@ jobs:
           print(REFS_DIR)
           print(n, 'md files')
           "
+      - name: Version consistency across manifests
+        run: python tools/version_check.py
+
       - name: Contract self-test
         run: python tests/selftest_stdio.py
