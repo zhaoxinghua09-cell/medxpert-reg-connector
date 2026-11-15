@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.3.3 — 2026-11-15
+
+**Icon hosting fix. No code or tool-behaviour change.**
+
+### Fixed
+- The 1.3.2 icon pointed only at `raw.githubusercontent.com`, which is unreachable from mainland-China networks: measured from this machine the TLS handshake times out after 24 s, while `cdn.jsdelivr.net` serves the same file in 1.1 s. `icons` now lists **two** sources — jsDelivr CDN first, raw GitHub second — so a client can use whichever resolves.
+
+### Verified
+- `cdn.jsdelivr.net` served the icon in 1.1 s; `gcore.jsdelivr.net`, the same mirror on another edge, in 1.0 s. `raw.githubusercontent.com` is listed as a secondary entry and was **not** verified from this machine.
+- `server.json` re-validates against the 2025-12-11 schema (2 icon entries).
+- `tools/attest.py --check` → `files=53 drift=0 fingerprint_match=True payload_fingerprint_match=True`.
+
 ## 1.3.2 — 2026-11-15
 
 **Registry metadata and discoverability release. No code or tool-behaviour change.**
