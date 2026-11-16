@@ -24,26 +24,24 @@ jobs:
         run: ./mcp-publisher validate server.json
 
       # Re-running for an already registered version returns HTTP 400 "duplicate version",
-      # which would paint a red X on a tag push that changes nothing. Check first.
+      # which would paint a red X on a tag push that changes nothing. Ask the version endpoint
+      # directly: `?search=` was measured returning the oldest version only, so it reported
+      # "not registered" for versions that were already there.
       - name: Check whether this version is already registered
         id: check
         run: |
           NAME=$(python3 -c "import json;print(json.load(open('server.json'))['name'])")
           VER=$(python3 -c "import json;print(json.load(open('server.json'))['version'])")
+          ENC=$(python3 -c "import sys,urllib.parse;print(urllib.parse.quote(sys.argv[1],safe=''))" "$NAME")
           echo "checking $NAME@$VER"
-          BODY=$(curl -fsS "https://registry.modelcontextprotocol.io/v0/servers?search=$NAME")
-          if printf '%s' "$BODY" | NAME="$NAME" VER="$VER" python3 -c '
-          import json, os, sys
-          name, ver = os.environ["NAME"], os.environ["VER"]
-          data = json.load(sys.stdin)
-          hit = any(s.get("server", {}).get("name") == name and s["server"].get("version") == ver
-                    for s in data.get("servers", []))
-          sys.exit(0 if hit else 1)
-          '; then
+          CODE=$(curl -s -o /dev/null -w '%{http_code}' \
+            "https://registry.modelcontextprotocol.io/v0/servers/$ENC/versions/$VER")
+          if [ "$CODE" = "200" ]; then
             echo "already_exists=true" >> "$GITHUB_OUTPUT"
-            echo "::notice::already registered, publish skipped"
+            echo "::notice::already registered (HTTP $CODE), publish skipped"
           else
             echo "already_exists=false" >> "$GITHUB_OUTPUT"
+            echo "not registered yet (HTTP $CODE), publishing"
           fi
 
       - name: Authenticate to MCP Registry
