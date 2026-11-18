@@ -5,7 +5,7 @@
 | 级 | 结果 | 证据位置 | 说明 |
 |---|---|---|---|
 | L1 自我复现 | **有** | `tests/selftest_stdio.py`、`tools/check_sources.py`、`tools/attest.py`、`tools/release_check.py`、`tools/version_{check,gate}.py`、`.github/workflows/{ci,link-audit,version-gate}.yml` | 有 stdio 自检、来源新鲜度检查、链接审计、版本门禁与发布检查 |
-| L2 异体审查 | **待核** | `安全审计报告.md`、`ATTESTATION.md` | 两份文件存在，但**审查者身份、范围、结论**未逐份核对；核对前不计 L2 |
+| L2 异体审查 | **0（已取证，不成立）** | `安全审计报告.md`、`ATTESTATION.md` | 2026-11-18 核对：报告写明"审计方式：静态人工审查（本机 `skills-security-check` 仅含 SKILL.md、无独立扫描脚本；按流程等价检查项**逐项自评**）"，结论 P2 低风险。**自评，不计 L2**；`ATTESTATION.md` 同为自证 |
 | L3 第二实现 | **0** | — | 无独立实现 |
 | L3.5 外部语料 | **0** | — | 27 个"枢纽"文档为自行编纂，未与官方数据库抽样比对 |
 | L4 外部节点 | **0** | — | 已上 PyPI / LobeHub / Smithery（`smithery.yaml`、`lhm.plugin.json`），无第三方使用证据可指认 |
